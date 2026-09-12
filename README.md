@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Levitate Dynamics — Sovereign Stratospheric Aerospace Systems
+
+Official website and digital presence for **Levitate Dynamics Private Limited**, an Indian aerospace enterprise pioneering indigenous High Altitude Pseudo-Satellite (HAPS) systems and autonomous stratospheric aircraft.
+
+---
+
+## Overview
+
+Levitate Dynamics bridges the operational gap between tactical UAVs and orbital satellites. Operating continuously in the stratosphere, our solar-electric autonomous aircraft deliver persistent intelligence, surveillance, reconnaissance (ISR), sovereign broadband/5G telecommunications, and maritime domain awareness.
+
+### Verified Platform Specifications
+
+* **Wingspan**: `24 m`
+* **Payload Capacity**: `8 kg`
+* **Structural Architecture**: High-aspect-ratio carbon composite airframe
+* **Propulsion**: Solar-electric brushless propulsion with daylight energy harvesting and nocturnal persistence storage
+
+---
+
+## Corporate Information
+
+* **Entity**: LEVITATE DYNAMICS PRIVATE LIMITED
+* **Corporate CIN**: U30305MH2025PTC447508
+* **Headquarters**: Nagpur, Maharashtra, India
+* **Initiative**: Aligned with Atmanirbhar Bharat (National Aerospace Self-Reliance)
+
+---
+
+## Tech Stack & Architecture
+
+* **Framework**: Next.js 16 (App Router, Turbopack)
+* **Styling**: Tailwind CSS, Orbitron, Space Grotesk
+* **Animation**: Framer Motion
+* **Type Safety**: TypeScript 5
+* **Deployment**: Vercel Production
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+* Node.js 18+
+* npm or pnpm
+
+### Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Repository & Synchronization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **GitHub Repository**: [https://github.com/huzaifadev-bit/levitate-dynamics](https://github.com/huzaifadev-bit/levitate-dynamics)
+* **Default Branch**: `main`
+* **Live Production**: [https://levitate-dynamics-real.vercel.app](https://levitate-dynamics-real.vercel.app)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+© 2026 Levitate Dynamics Private Limited. All rights reserved.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

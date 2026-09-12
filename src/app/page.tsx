@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { PLATFORM_FAMILY } from "@/lib/platforms";
 
 const CORE_TECHNOLOGIES = [
   {
@@ -331,7 +330,7 @@ export default function Home() {
           </div>
 
           {/* Featured Flagship Platform Card */}
-          <div className="bg-[#121216] border border-white/10 rounded-sm overflow-hidden hover:border-white/20 transition-all duration-300 mb-16">
+          <div className="bg-[#121216] border border-white/10 rounded-sm overflow-hidden hover:border-white/20 transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               {/* Aircraft Visual Container */}
               <div className="lg:col-span-7 relative min-h-[360px] sm:min-h-[460px] lg:min-h-[520px] bg-black overflow-hidden group">
@@ -401,62 +400,6 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Platform Family */}
-          <div className="space-y-6">
-            <div className="border-b border-white/10 pb-4">
-              <span className="text-xs font-mono text-zinc-400 tracking-[0.2em] uppercase font-semibold">
-                PLATFORM FAMILY // SYSTEM ROSTER
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {PLATFORM_FAMILY.map((member) => (
-                <div
-                  key={member.name}
-                  className="bg-[#121216] border border-white/10 rounded-sm overflow-hidden flex flex-col justify-between group hover:border-white/25 transition-all"
-                >
-                  <div className="relative h-48 bg-black overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent"></div>
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2 py-0.5 bg-black/70 border border-white/15 text-[9px] font-mono text-zinc-300 uppercase tracking-wider rounded-sm">
-                        {member.role}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h4 className="text-xl font-bold font-headline-sm uppercase text-white tracking-wide mb-1">
-                        {member.name}
-                      </h4>
-                      <p className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">
-                        {member.tagline}
-                      </p>
-                      <p className="text-xs sm:text-sm text-zinc-400 font-body-md leading-relaxed font-light">
-                        {member.description}
-                      </p>
-                    </div>
-
-                    <div className="pt-6 mt-6 border-t border-white/10 flex justify-between items-center">
-                      <Link
-                        href="/platforms"
-                        className="text-[11px] font-mono text-zinc-300 hover:text-white uppercase tracking-wider inline-flex items-center gap-1"
-                      >
-                        <span>VIEW OVERVIEW</span>
-                        <span>→</span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>

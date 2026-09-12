@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STRATO-X | LEVITATE DYNAMICS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-container": "#afb8d3",
+                "primary-container": "#00f0ff",
+                "on-surface": "#e5e1e5",
+                "on-tertiary-fixed-variant": "#43474b",
+                "primary-fixed": "#7df4ff",
+                "on-tertiary-container": "#5b5f63",
+                "on-tertiary": "#2d3135",
+                "primary-fixed-dim": "#00dbe9",
+                "outline": "#849495",
+                "on-tertiary-fixed": "#181c20",
+                "on-primary": "#00363a",
+                "on-secondary-fixed-variant": "#3d475d",
+                "surface-container": "#201f22",
+                "on-primary-container": "#006970",
+                "tertiary-container": "#d7d9de",
+                "outline-variant": "#3b494b",
+                "surface-container-low": "#1c1b1e",
+                "on-secondary": "#273045",
+                "on-primary-fixed-variant": "#004f54",
+                "tertiary-fixed-dim": "#c4c7cc",
+                "surface-container-high": "#2a2a2c",
+                "surface": "#131316",
+                "on-primary-fixed": "#002022",
+                "on-secondary-fixed": "#121b2f",
+                "on-background": "#e5e1e5",
+                "error": "#ffb4ab",
+                "surface-dim": "#131316",
+                "secondary": "#bdc6e1",
+                "on-surface-variant": "#b9cacb",
+                "primary": "#dbfcff",
+                "inverse-primary": "#006970",
+                "surface-container-lowest": "#0e0e10",
+                "inverse-surface": "#e5e1e5",
+                "background": "#131316",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#313033",
+                "surface-tint": "#00dbe9",
+                "tertiary": "#f3f6fb",
+                "surface-container-highest": "#353437",
+                "secondary-container": "#40495f",
+                "surface-bright": "#3a393b",
+                "on-error": "#690005",
+                "surface-variant": "#353437",
+                "secondary-fixed-dim": "#bdc6e1",
+                "secondary-fixed": "#d9e2fe",
+                "tertiary-fixed": "#e0e2e8",
+                "error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "margin-desktop": "64px",
+                "container-max": "1440px",
+                "gutter": "16px",
+                "unit": "4px",
+                "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                "body-lg": ["Space Grotesk"],
+                "headline-md": ["Orbitron"],
+                "body-md": ["Space Grotesk"],
+                "display-lg": ["Orbitron"],
+                "data-mono": ["Space Grotesk"],
+                "label-caps": ["Space Grotesk"],
+                "headline-sm": ["Orbitron"]
+            },
+            "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                "data-mono": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(132, 148, 149, 0.2);
+        }
+        .luminous-border {
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.05);
+        }
+        .glow-text {
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 240, 255, 0.02) 50%);
+            background-size: 100% 4px;
+        }
+        .active-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .card-corner {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-color: #00f0ff;
+        }
+        .corner-tl { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+        .corner-tr { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; }
+        .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; }
+        .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+    
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(200%) rotate(45deg); }
+        }
+        .shimmer-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+        .shimmer-effect:hover::after {
+            animation: shimmer 1s forwards;
+        }
+
+        .nav-link-hover {
+            position: relative;
+        }
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #00f0ff;
+            box-shadow: 0 0 10px #00f0ff;
+            transition: all 0.3s ease-out;
+            transform: translateX(-50%);
+        }
+        .nav-link-hover:hover::after,
+        .nav-link-active::after {
+            width: 100%;
+        }
+
+        @keyframes pulse-hud {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+        .hud-pulse:hover .crosshair {
+            animation: pulse-hud 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Header -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 border-b border-outline-variant/30">
+<div class="text-headline-sm font-headline-sm tracking-widest text-primary dark:text-primary-fixed-dim">LEVITATE DYNAMICS</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="nav-link-hover text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">PLATFORM</a>
+<a class="nav-link-hover nav-link-active text-primary font-bold" href="#">APPLICATIONS</a>
+<a class="nav-link-hover text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">STRATEGIC TECH</a>
+<a class="nav-link-hover text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">INVESTORS</a>
+<a class="nav-link-hover text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">R&amp;D</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps tracking-widest hover:brightness-110 transition-all active-glow shimmer-effect hover:scale-105 transition-all duration-300">
+        COMMAND CENTER
+    </button>
+</header>
+<main class="relative">
+<!-- Hero Section: Cinematic Showcase -->
+<section class="relative h-screen flex items-center justify-start overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover brightness-50" data-alt="A cinematic, high-detail view of a solar-powered HAPS aircraft soaring high in the dark stratospheric layer, with the bright blue curvature of Earth visible below against the deep black of space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCScxT3-_XFQGmnhXU0CPidEG810ep51gMgTGQvvvhicx7O0YHpTQNca49CmfplUpQ4V28YoXTsuHseUdjoFY7s_2WtETfSMRx4fOwLdvEkbUHCV-X2N70C4cLhxKw5PfYg9rtvVYXdEzvbbw-Ou9u3EPjrCEuQ2NIFQbPV6eN8zzI81NgynDxCgqa7KI-Xe6w34ogGsSBbThSECwN-sLVnTqfANWW_jT_0T_kGzTHrNOjNT5of9QFwV9kgk-PsvYzYuBj5VKV2cf0"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute inset-0 scanline opacity-20"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-4xl">
+<div class="mb-4 inline-flex items-center space-x-2 border-l-2 border-primary-container pl-4 py-1">
+<span class="material-symbols-outlined text-primary-container text-sm">rocket_launch</span>
+<span class="font-data-mono text-primary-fixed tracking-[0.2em] text-label-caps">SYSTEM STATUS: OPERATIONAL</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary mb-6 leading-tight">STRATO-X: THE APEX OF SOVEREIGN INTELLIGENCE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+            Redefining stratospheric presence with a High Altitude Pseudo-Satellite platform designed for perpetual endurance and undisputed tactical superiority.
+        </p>
+<div class="flex space-x-6">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps tracking-widest luminous-border active-glow hover:scale-105 transition-transform shimmer-effect">
+                EXPLORE PLATFORM
+            </button>
+<button class="border border-outline-variant bg-surface/30 backdrop-blur-md text-on-surface px-8 py-4 font-label-caps tracking-widest hover:border-primary-container hover:text-primary-container transition-all shimmer-effect">
+                TECHNICAL BRIEF
+            </button>
+</div>
+</div>
+<!-- HUD Overlay Element -->
+<div class="absolute bottom-12 right-margin-desktop glass-panel p-6 luminous-border hidden lg:block">
+<div class="grid grid-cols-2 gap-8 font-data-mono">
+<div>
+<div class="text-[10px] text-outline-variant mb-1 uppercase tracking-widest">Altitude</div>
+<div class="text-headline-sm text-primary-fixed">19,812 <span class="text-xs">M</span></div>
+</div>
+<div>
+<div class="text-[10px] text-outline-variant mb-1 uppercase tracking-widest">Velocity</div>
+<div class="text-headline-sm text-primary-fixed">Mach 0.12</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specifications: Bento Grid (REFREHED) -->
+<section class="py-24 relative overflow-hidden">
+<div class="absolute inset-0 blueprint-grid opacity-20 pointer-events-none"></div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-16 flex items-end justify-between border-b border-primary-container/20 pb-8">
+<div>
+<div class="font-data-mono text-[10px] text-primary-container tracking-[0.4em] mb-2 uppercase">Telemetric Analysis v4.2</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-0">ENGINEERING PARAMETERS</h2>
+</div>
+<div class="hidden md:block font-data-mono text-[10px] text-outline text-right leading-relaxed">
+                REF: LX-PROT-992<br/>
+                CHECKSUM: 0x8F22A1
+            </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<!-- Endurance Card -->
+<div class="glass-panel p-8 luminous-border md:col-span-3 lg:col-span-3 relative group overflow-hidden hover:bg-primary-container/[0.03] transition-colors hover:border-primary-container hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:bg-surface-bright/40 duration-500">
+<div class="card-corner corner-tl"></div><div class="card-corner corner-tr"></div>
+<div class="card-corner corner-bl"></div><div class="card-corner corner-br"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="font-label-caps text-primary-fixed-dim flex items-center">
+<span class="material-symbols-outlined mr-2" style="font-variation-settings: 'FILL' 1;">timer</span> 
+                        MISSION ENDURANCE
+                    </div>
+<div class="font-data-mono text-[10px] text-outline uppercase tracking-widest">Status: Sustained</div>
+</div>
+<div class="flex items-baseline space-x-4">
+<div class="text-7xl font-headline-md text-on-surface">90<span class="text-primary-container">+</span></div>
+<div class="font-data-mono text-outline uppercase tracking-widest text-xs">Days Perpetual Flight</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20 grid grid-cols-2 gap-4">
+<div class="font-data-mono text-[10px] text-outline-variant">BATTERY ARCH: Li-S 450Wh/kg</div>
+<div class="font-data-mono text-[10px] text-outline-variant">DISCHARGE RATE: 0.2C Nom.</div>
+</div>
+</div>
+<!-- Altitude Card -->
+<div class="glass-panel p-8 luminous-border md:col-span-1 lg:col-span-3 relative group overflow-hidden hover:bg-primary-container/[0.03] transition-colors hover:border-primary-container hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:bg-surface-bright/40 duration-500">
+<div class="card-corner corner-tl"></div><div class="card-corner corner-tr"></div>
+<div class="card-corner corner-bl"></div><div class="card-corner corner-br"></div>
+<div class="font-label-caps text-primary-fixed-dim mb-12 flex items-center">
+<span class="material-symbols-outlined mr-2">height</span> 
+                    OPERATIONAL CEILING
+                </div>
+<div class="text-5xl font-headline-md text-on-surface mb-2">65K</div>
+<div class="font-data-mono text-outline uppercase tracking-widest text-xs">Feet Altitude</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<div class="font-data-mono text-[10px] text-outline-variant">AIR DENSITY: 0.088 kg/m³</div>
+<div class="font-data-mono text-[10px] text-outline-variant">TEMP RANGE: -70°C / +45°C</div>
+</div>
+</div>
+<!-- Payload Card -->
+<div class="glass-panel p-8 luminous-border md:col-span-1 lg:col-span-2 relative group overflow-hidden hover:bg-primary-container/[0.03] transition-colors hover:border-primary-container hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:bg-surface-bright/40 duration-500">
+<div class="card-corner corner-tl"></div><div class="card-corner corner-tr"></div>
+<div class="card-corner corner-bl"></div><div class="card-corner corner-br"></div>
+<div class="font-label-caps text-primary-fixed-dim mb-12 flex items-center">
+<span class="material-symbols-outlined mr-2">package_2</span> 
+                    MODULAR PAYLOAD
+                </div>
+<div class="text-5xl font-headline-md text-on-surface mb-2">15<span class="text-primary-container text-3xl">KG</span></div>
+<div class="font-data-mono text-outline uppercase tracking-widest text-xs">Swap-Ready Bays</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<div class="font-data-mono text-[10px] text-outline-variant">BUS: MIL-STD-1553 / GigE</div>
+<div class="font-data-mono text-[10px] text-outline-variant">LATENCY: &lt;10ms (Local)</div>
+</div>
+</div>
+<!-- Solar Efficiency Card -->
+<div class="glass-panel p-8 luminous-border md:col-span-2 lg:col-span-4 relative group overflow-hidden hover:bg-primary-container/[0.03] transition-colors hover:border-primary-container hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:bg-surface-bright/40 duration-500">
+<div class="card-corner corner-tl"></div><div class="card-corner corner-tr"></div>
+<div class="card-corner corner-bl"></div><div class="card-corner corner-br"></div>
+<div class="flex justify-between items-start mb-12">
+<div class="font-label-caps text-primary-fixed-dim flex items-center">
+<span class="material-symbols-outlined mr-2">wb_sunny</span> 
+                        SOLAR CONVERSION
+                    </div>
+<div class="font-data-mono text-[10px] text-primary-fixed tracking-widest">OPT: 98.2% EFF</div>
+</div>
+<div class="flex items-end space-x-6 mb-8">
+<div class="text-5xl font-headline-md text-on-surface">24.8%</div>
+<div class="flex-1 bg-outline-variant/30 h-1.5 mb-4 relative overflow-hidden">
+<div class="bg-primary-container h-full w-[85%] shadow-[0_0_15px_#00f0ff] relative">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="font-data-mono text-outline uppercase tracking-widest text-[11px] mb-6">Multi-Junction Gallium Arsenide (III-V)</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-6 border-t border-outline-variant/20">
+<div>
+<div class="text-[10px] text-outline-variant uppercase">Peak Output</div>
+<div class="font-data-mono text-primary-fixed text-xs">2.4 kW</div>
+</div>
+<div>
+<div class="text-[10px] text-outline-variant uppercase">Voltage</div>
+<div class="font-data-mono text-primary-fixed text-xs">450-600V</div>
+</div>
+<div>
+<div class="text-[10px] text-outline-variant uppercase">Panel Area</div>
+<div class="font-data-mono text-primary-fixed text-xs">32 m²</div>
+</div>
+<div>
+<div class="text-[10px] text-outline-variant uppercase">Controller</div>
+<div class="font-data-mono text-primary-fixed text-xs">MPPT Quad-Link</div>
+</div>
+</div>
+</div>
+<!-- Propulsion Card -->
+<div class="glass-panel p-8 luminous-border md:col-span-4 lg:col-span-6 relative group overflow-hidden hover:bg-primary-container/[0.03] transition-colors hover:border-primary-container hover:shadow-[0_0_25px_rgba(0,240,255,0.3)] hover:bg-surface-bright/40 duration-500">
+<div class="card-corner corner-tl"></div><div class="card-corner corner-tr"></div>
+<div class="card-corner corner-bl"></div><div class="card-corner corner-br"></div>
+<div class="flex justify-between items-center mb-8">
+<div class="font-label-caps text-primary-fixed-dim flex items-center">
+<span class="material-symbols-outlined mr-2">settings_input_component</span> 
+                        PROPULSION SYSTEM ARCHITECTURE
+                    </div>
+<div class="px-3 py-1 bg-primary-container/10 border border-primary-container/30 font-data-mono text-[10px] text-primary-container">QUAD-REDUNDANT ACTIVE</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<div class="text-3xl font-headline-sm text-on-surface mb-2">Dual High-Torque Brushless Motors</div>
+<div class="font-data-mono text-outline uppercase tracking-widest text-xs">Integrated Cryo-Cooling Module</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="border-l border-primary-container/40 pl-4">
+<div class="text-[10px] text-outline-variant uppercase mb-1">Max RPM</div>
+<div class="font-data-mono text-primary-fixed text-lg">12,400</div>
+</div>
+<div class="border-l border-primary-container/40 pl-4">
+<div class="text-[10px] text-outline-variant uppercase mb-1">Thrust-to-Weight</div>
+<div class="font-data-mono text-primary-fixed text-lg">1.42:1</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20 flex flex-wrap gap-x-12 gap-y-4">
+<div class="font-data-mono text-[10px] text-outline-variant">DIAGNOSTICS: NOMINAL</div>
+<div class="font-data-mono text-[10px] text-outline-variant">VIBRATION INDEX: &lt;0.01G</div>
+<div class="font-data-mono text-[10px] text-outline-variant">THERMAL ENVELOPE: OPTIMAL</div>
+<div class="font-data-mono text-[10px] text-primary-container ml-auto">FIRMWARE: LD-OS 12.1.0</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Technologies: Cinematic Interstitial -->
+<section class="py-24 bg-surface-container-low relative">
+<div class="absolute inset-0 opacity-10">
+<img class="w-full h-full object-cover grayscale" data-alt="A close-up, technical macro shot of advanced circuitry and glowing microprocessor paths." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJbHmC5xG3sPz2mRMd69U3YBb5q5ndwF6cL9b4C78KqIAVzxRHRvRE82s_j6YLqlovcULvYLzzEpeU1-gtdsA2WpfXXKIp-pyZAViHWZ83mI6XQuf44MXfFddr_RhFoJXDjWEyQjaFeWY9fsgDllJ-MLAUm3F7lK__Fm3nFkDFl1vjyJwEH2c8eKvPLQqe4Qg7poLlilNjQAXjW_f_ns238t1JcA-SQ5ak_SsSjbAIOcKbI078Uv8UsTYKM7iViA533iKzmDCi5Sk"/>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-md text-headline-md text-primary tracking-widest uppercase mb-4">THE STRATOSPHERIC EDGE</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Proprietary technologies integrated into a single, unified aerial platform for unmatched performance.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-primary-container/40 rounded-full bg-primary-container/5 luminous-border">
+<span class="material-symbols-outlined text-primary-container text-3xl" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Solar Perpetuity</h3>
+<p class="font-body-md text-on-surface-variant">Advanced energy harvesting and high-density lithium-sulfur storage enables mission lengths measured in months, not hours.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-primary-container/40 rounded-full bg-primary-container/5 luminous-border">
+<span class="material-symbols-outlined text-primary-container text-3xl">psychology</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Autonomous AI Navigation</h3>
+<p class="font-body-md text-on-surface-variant">On-board neural processing handles stratospheric winds, turbulence, and optimal flight pathing without ground intervention.</p>
+</div>
+<div class="text-center">
+<div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center border border-primary-container/40 rounded-full bg-primary-container/5 luminous-border">
+<span class="material-symbols-outlined text-primary-container text-3xl">hub</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Encrypted Mesh Networking</h3>
+<p class="font-body-md text-on-surface-variant">Quantum-resistant encryption layers protecting low-latency, high-bandwidth data links across multi-platform swarms.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ISR & Tactical Map Overlays -->
+<section class="py-32 px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-48 h-48 border-t border-l border-primary-container/30"></div>
+<div class="absolute -bottom-12 -right-12 w-48 h-48 border-b border-r border-primary-container/30"></div>
+<div class="relative overflow-hidden luminous-border glass-panel hud-pulse group">
+<img class="w-full aspect-video object-cover opacity-80 mix-blend-screen" data-alt="A tactical top-down view of a coastal region with high-resolution satellite-style imagery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBelNbIbGWGsaPKAC2IGDyNuLQtaEKLlRpr2KNcantqsoa4dBIhtvS7_uNdqOI6ctB3diW4Bha2LqpyVAI430iYUh8S7iIAfRqeBaj9yFZTz-avylorSIc1L6b5yTNZbZjH9jmnPI8Al_U7iLzpHZOcdiL6QOrbHKcaALaW345puD2kZhmNpo9Lrq0bQ52S0s--XS5EKYvvdWCmkSBiQTTXaCLx9a1KS9zI-lUjdA8AZ0U57emaYBIVY_WAVWKLWoBgZyUfPeP6qeQ"/>
+<!-- HUD Overlays -->
+<div class="absolute inset-0 p-6 flex flex-col justify-between pointer-events-none">
+<div class="flex justify-between items-start">
+<div class="bg-primary-container/10 border border-primary-container/40 px-3 py-1 font-data-mono text-[10px] text-primary-fixed">REC [●] 24.00 FPS</div>
+<div class="bg-error/10 border border-error/40 px-3 py-1 font-data-mono text-[10px] text-error">ALARM: PERIMETER BREACH</div>
+</div>
+<div class="flex justify-center">
+<div class="w-24 h-24 border-2 border-primary-container/40 flex items-center justify-center crosshair transition-all duration-700">
+<div class="w-1 h-8 bg-primary-container/60"></div>
+<div class="w-8 h-1 bg-primary-container/60 absolute"></div>
+</div>
+</div>
+<div class="font-data-mono text-[10px] text-primary-fixed-dim">
+                    LOC: 40.7128° N, 74.0060° W | ALT: 21,430M | AZM: 184°
+                </div>
+</div>
+</div>
+</div>
+<div>
+<div class="font-label-caps text-primary-fixed-dim mb-4 tracking-[0.3em]">MISSION PROFILE: ISR</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-8">PERSISTENT SURVEILLANCE &amp; RECONNAISSANCE</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">
+            Eliminate intelligence gaps with unblinking stratospheric eyes. Strato-X provides continuous, high-resolution monitoring for border security, maritime domain awareness, and disaster response where satellites fall short and traditional UAVs fail.
+        </p>
+<ul class="space-y-4">
+<li class="flex items-center text-on-surface">
+<span class="material-symbols-outlined text-primary-container mr-4">check_circle</span>
+<span>Wide-Area Motion Imagery (WAMI) Integration</span>
+</li>
+<li class="flex items-center text-on-surface">
+<span class="material-symbols-outlined text-primary-container mr-4">check_circle</span>
+<span>SIGINT &amp; ELINT SIG-collection ready</span>
+</li>
+<li class="flex items-center text-on-surface">
+<span class="material-symbols-outlined text-primary-container mr-4">check_circle</span>
+<span>AI-driven Target Recognition &amp; Tracking</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Communication Relay: 5G/Connectivity -->
+<section class="py-24 px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto glass-panel p-16 luminous-border flex flex-col md:flex-row items-center gap-16">
+<div class="flex-1">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">THE STRATOSPHERIC TOWER</h2>
+<p class="font-body-lg text-on-surface-variant mb-8">
+                Strato-X functions as a mobile telecommunications tower in the sky. Providing low-latency 5G backhaul and broadband connectivity to underserved rural regions or rapid deployment of communications in conflict zones.
+            </p>
+<div class="grid grid-cols-2 gap-8 mb-8">
+<div>
+<div class="text-headline-sm text-primary-fixed-dim font-headline-sm">1.2 TBPS</div>
+<div class="font-data-mono text-xs uppercase text-outline">Throughput Capacity</div>
+</div>
+<div>
+<div class="text-headline-sm text-primary-fixed-dim font-headline-sm">40,000 km²</div>
+<div class="font-data-mono text-xs uppercase text-outline">Service Footprint</div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full relative">
+<div class="aspect-square relative flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border border-primary-container/20 animate-pulse"></div>
+<div class="absolute inset-8 rounded-full border border-primary-container/10"></div>
+<div class="absolute inset-16 rounded-full border border-primary-container/5"></div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-9xl">podcasts</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-32 px-margin-desktop text-center bg-background relative overflow-hidden">
+<!-- Background HUD effect -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none opacity-5">
+<div class="w-full h-full border-[1px] border-primary rounded-full"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 border-[1px] border-primary rounded-full"></div>
+</div>
+<div class="relative z-10">
+<div class="font-label-caps text-primary-fixed tracking-[0.4em] mb-6">SECURE THE FUTURE OF YOUR AIRSPACE</div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-12 max-w-4xl mx-auto uppercase">RECLAIM SOVEREIGN INDEPENDENCE</h2>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-primary-container text-on-primary-container px-12 py-5 font-label-caps tracking-[0.2em] luminous-border active-glow hover:scale-105 transition-all text-lg shimmer-effect">
+                REQUEST TECHNICAL DOSSIER
+            </button>
+<button class="border-2 border-primary-fixed text-primary-fixed px-12 py-5 font-label-caps tracking-[0.2em] hover:bg-primary-fixed/10 transition-all text-lg shimmer-effect">
+                PARTNER WITH US
+            </button>
+</div>
+<div class="mt-16 font-data-mono text-outline text-xs">
+            PROTECTED BY RSA-4096 ENCRYPTION PROTOCOLS | LEVEL 5 CLEARANCE REQUIRED
+        </div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="w-full py-12 px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-6">LEVITATE DYNAMICS</div>
+<p class="text-body-md font-body-md text-outline">Sovereign aerospace systems for a world in transition.</p>
+</div>
+<div class="md:col-span-1 flex flex-col space-y-3">
+<div class="text-data-mono font-data-mono text-outline-variant mb-2">OPERATIONS</div>
+<a class="text-outline-variant hover:text-primary-fixed-dim transition-all duration-200 hover:underline" href="#">SATELLITE TELEMETRY</a>
+<a class="text-outline-variant hover:text-primary-fixed-dim transition-all duration-200 hover:underline" href="#">MISSION OVERVIEW</a>
+<a class="text-outline-variant hover:text-primary-fixed-dim transition-all duration-200 hover:underline" href="#">STRATOSPHERIC DATA</a>
+</div>
+<div class="md:col-span-1 flex flex-col space-y-3">
+<div class="text-data-mono font-data-mono text-outline-variant mb-2">GOVERNANCE</div>
+<a class="text-outline-variant hover:text-primary-fixed-dim transition-all duration-200 hover:underline" href="#">LEGAL DISCLOSURE</a>
+<a class="text-outline-variant hover:text-primary-fixed-dim transition-all duration-200 hover:underline" href="#">SECURITY PROTOCOLS</a>
+</div>
+<div class="md:col-span-1 flex flex-col items-end justify-between">
+<div class="flex space-x-4">
+<span class="material-symbols-outlined text-outline-variant hover:text-primary-fixed transition-colors cursor-pointer">share</span>
+<span class="material-symbols-outlined text-outline-variant hover:text-primary-fixed transition-colors cursor-pointer">public</span>
+</div>
+<div class="text-data-mono font-data-mono text-outline text-right text-[10px]">
+                SYSTEM TIME: 14:22:09 UTC<br/>
+                LAT: 45.4215° N, LON: 75.6972° W
+            </div>
+</div>
+</div>
+<div class="w-full py-6 px-margin-desktop border-t border-outline-variant/10 text-center">
+<p class="text-body-md font-body-md text-outline text-xs tracking-widest uppercase">
+            © 2024 LEVITATE DYNAMICS. SOVEREIGN AEROSPACE INDEPENDENCE.
+        </p>
+</div>
+</footer>
+</body></html>

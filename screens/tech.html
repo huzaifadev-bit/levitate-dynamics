@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Strategic Tech | LEVITATE DYNAMICS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0e0e10",
+                      "inverse-on-surface": "#313033",
+                      "surface-bright": "#3a393b",
+                      "on-primary": "#00363a",
+                      "surface-dim": "#131316",
+                      "on-surface": "#e5e1e5",
+                      "on-background": "#e5e1e5",
+                      "surface-container-low": "#1c1b1e",
+                      "on-primary-fixed": "#002022",
+                      "on-error": "#690005",
+                      "surface-variant": "#353437",
+                      "surface-container-highest": "#353437",
+                      "outline-variant": "#3b494b",
+                      "secondary-fixed-dim": "#bdc6e1",
+                      "secondary-fixed": "#d9e2fe",
+                      "on-secondary-fixed": "#121b2f",
+                      "error": "#ffb4ab",
+                      "primary": "#dbfcff",
+                      "outline": "#849495",
+                      "primary-container": "#00f0ff",
+                      "surface": "#131316",
+                      "on-tertiary-fixed": "#181c20",
+                      "surface-container": "#201f22",
+                      "secondary-container": "#40495f",
+                      "on-primary-container": "#006970",
+                      "on-primary-fixed-variant": "#004f54",
+                      "inverse-primary": "#006970",
+                      "on-secondary-container": "#afb8d3",
+                      "on-secondary-fixed-variant": "#3d475d",
+                      "on-secondary": "#273045",
+                      "background": "#131316",
+                      "tertiary-fixed": "#e0e2e8",
+                      "primary-fixed-dim": "#00dbe9",
+                      "on-tertiary": "#2d3135",
+                      "tertiary": "#f3f6fb",
+                      "inverse-surface": "#e5e1e5",
+                      "tertiary-container": "#d7d9de",
+                      "secondary": "#bdc6e1",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-container": "#5b5f63",
+                      "surface-tint": "#00dbe9",
+                      "error-container": "#93000a",
+                      "primary-fixed": "#7df4ff",
+                      "on-tertiary-fixed-variant": "#43474b",
+                      "tertiary-fixed-dim": "#c4c7cc",
+                      "surface-container-high": "#2a2a2c",
+                      "on-surface-variant": "#b9cacb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "container-max": "1440px",
+                      "unit": "4px",
+                      "margin-desktop": "64px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Orbitron"],
+                      "body-lg": ["Space Grotesk"],
+                      "body-md": ["Space Grotesk"],
+                      "display-lg": ["Orbitron"],
+                      "headline-md": ["Orbitron"],
+                      "data-mono": ["Space Grotesk"],
+                      "label-caps": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "data-mono": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .glass-panel {
+            background: rgba(28, 27, 30, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(185, 202, 203, 0.1);
+        }
+        .luminous-border {
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: inset 0 0 15px rgba(0, 240, 255, 0.05);
+        }
+        .cyan-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+        .scan-line {
+            background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.1), transparent);
+            height: 100px;
+            width: 100%;
+            position: absolute;
+            top: -100px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-16 py-4 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="text-headline-sm font-headline-sm tracking-widest text-primary">LEVITATE DYNAMICS</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">PLATFORM</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">APPLICATIONS</a>
+<a class="text-primary font-bold border-b-2 border-primary-fixed pb-1 font-label-caps tracking-tighter" href="#">STRATEGIC TECH</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">INVESTORS</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">R&amp;D</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps tracking-widest hover:opacity-90 transition-all cyan-glow">
+            COMMAND CENTER
+        </button>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center px-6 md:px-16 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A cinematic wide shot of a sleek, futuristic high-altitude pseudo-satellite with solar-panel wings hovering silently in the blackness of the stratosphere. Below, the glowing curve of the Earth's horizon at night reveals webs of city lights in electric cyan and deep blues. The lighting is dramatic and high-contrast, emphasizing the metallic textures of the craft against the infinite dark of space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWa4_2QCd3XBWZUFL33SKVczZuZy0HLhsLEboxcq9pn_aw5a7CgGAaN9JxmZdVinA8DAO3Dm6L9p7Iajf4lgeONWZ_onqo9c-ZQqjJ0HjS8fIJPI1BkUSnI56-4pl9oEFndek9BkzPwC3EFHyqKnRuhN-C8MffIsZdS4tcFHWKtwY_YgibPZcjz6xOGoM5hKKfrb6yhCwm2jQNdmQCYE7ZArlXpkTvl6yOupnis8svjZKt-iCN36DUEwHt0zceVf-z5ZJnRu5479k"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/40"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<div class="flex items-center gap-4 mb-6">
+<span class="h-[1px] w-12 bg-primary"></span>
+<span class="font-data-mono text-primary text-data-mono tracking-[0.2em]">ORBITAL CLASS ASSETS</span>
+</div>
+<h1 class="font-display-lg text-display-lg uppercase leading-none mb-8">
+                    Sovereign <br/>
+<span class="text-primary-fixed-dim">Stratospheric</span> <br/>
+                    Solutions
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+                    Redefining aerospace autonomy. Our High Altitude Pseudo-Satellites (HAPS) provide persistent, re-deployable coverage at the edge of space, bridging the gap between tactical drones and orbital satellites.
+                </p>
+<div class="flex gap-6">
+<button class="bg-primary text-on-primary font-label-caps px-8 py-4 flex items-center gap-3 cyan-glow hover:translate-y-[-2px] transition-transform">
+<span>INITIATE PROTOCOL</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="border border-outline font-label-caps px-8 py-4 hover:border-primary transition-colors">
+                        TECHNICAL SPECS
+                    </button>
+</div>
+</div>
+<!-- HUD Overlay Element -->
+<div class="absolute right-16 bottom-16 hidden lg:block glass-panel p-6 border-l-2 border-l-primary w-80">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-caps text-primary">SYSTEM STATUS</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div class="space-y-3 font-data-mono text-[10px] text-outline">
+<div class="flex justify-between"><span>ALTITUDE:</span> <span class="text-on-surface">65,000 FT</span></div>
+<div class="flex justify-between"><span>LATITUDE:</span> <span class="text-on-surface">34.0522 N</span></div>
+<div class="flex justify-between"><span>TELEMETRY:</span> <span class="text-on-surface">OPTIMAL</span></div>
+<div class="w-full bg-surface-variant h-1 mt-4 relative overflow-hidden">
+<div class="absolute inset-0 bg-primary w-2/3"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Capabilities (Bento Grid) -->
+<section class="py-24 px-6 md:px-16 max-w-container-max mx-auto">
+<div class="mb-16">
+<h2 class="font-headline-md text-headline-md mb-4">CORE CAPABILITIES</h2>
+<div class="h-1 w-24 bg-primary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Persistent Surveillance -->
+<div class="md:col-span-8 group relative overflow-hidden glass-panel luminous-border min-h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-700" data-alt="A high-tech digital interface showing a heat map and infrared camera feed of a coastline at night, with green and cyan data overlays tracking vessel movements. The image is styled as a military-grade head-up display with sharp angular grid lines and digital coordinate labels in small, precise typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGEJvfdzoEF2YSB4WwLUxYzU-2YGnEj6SJJ1JSlsmnYrAWYOGruaVFiElP7P51SccE-dJO8RSOLUyqycxlGKXG-mczKTbKdEjzqy5kc7vrQiDP3q6EuvMfO8srBy5JJULjmXi4JQeAhyKjXMJznYDaKvGRlwkmMxzd9Naea_GAPSNyWkGdBdHxGVp3VFpk_fouei7iWg7yqiPHQiivPDxTAa1YSMo-IcANdiAJKt5WRJVxaB6T_k6Yqa_TFhlOidHf5EvSMW9pmIA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+<span class="font-label-caps text-primary tracking-widest">DEFENSE &amp; SECURITY</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">PERSISTENT SURVEILLANCE</h3>
+<p class="font-body-md text-on-surface-variant max-w-lg">
+                            Continuous 24/7 monitoring of borders and maritime zones. Real-time AI processing identifies anomalies before they reach critical thresholds.
+                        </p>
+</div>
+</div>
+<!-- Telecommunications -->
+<div class="md:col-span-4 glass-panel luminous-border p-8 flex flex-col justify-between hover:bg-surface-variant/40 transition-colors">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl" data-icon="cell_tower">cell_tower</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">TELECOM BRIDGING</h3>
+<p class="font-body-md text-on-surface-variant">
+                            Deploying 5G/6G coverage to rural and remote regions without the multi-billion dollar cost of terrestrial towers or satellite constellations.
+                        </p>
+</div>
+<div class="mt-8 flex items-center gap-2 text-primary font-label-caps cursor-pointer">
+                        VIEW NETWORK MAP <span class="material-symbols-outlined">north_east</span>
+</div>
+</div>
+<!-- Environmental Intelligence -->
+<div class="md:col-span-4 glass-panel luminous-border p-8 hover:bg-surface-variant/40 transition-colors">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl" data-icon="eco">eco</span>
+<h3 class="font-headline-sm text-headline-sm mb-4">ENVIRONMENTAL INTEL</h3>
+<p class="font-body-md text-on-surface-variant">
+                        Instant wildfire ignition detection and high-resolution climate tracking. Our sensors provide granular data unattainable by low-earth orbit satellites.
+                    </p>
+</div>
+<!-- Disaster Response -->
+<div class="md:col-span-8 group relative overflow-hidden glass-panel luminous-border min-h-[300px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700" data-alt="A dark, atmospheric scene of a high-tech communication hub in a remote mountainous region, with glowing cyan wires and glowing holographic maps projecting into the air. The lighting is moody and focused, with rain or mist adding a layer of texture to the cinematic, deep-tech industrial setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-_Jstb8uQQQxBHuLN6pJwYj8PjWHmwks6-h5CQExGPF0h70vXkHHMTAxtrwa8zt18-peBoONeVV5FB38usjqg2MIv_4FNqZb1Q-jzu_Za5sJ69MpRXqA3IOh1hGcWLT13IXUMaQWKFPKbOWvtudJQGgX0tNjyrJHFPbpAfWsJwAyrFbSYgUM_b-aqcZ0DQ1hvUzR2BCZ3D02o8uOjuozxozi288icV9aqZj9q-EVXeepVf5BVlRjFB2eHcVBoXUZH0jdm_NVP_a8"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"></div>
+<div class="relative p-8 h-full flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-primary" data-icon="emergency">emergency</span>
+<span class="font-label-caps text-primary tracking-widest">RAPID DEPLOYMENT</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm mb-4">DISASTER RESPONSE</h3>
+<p class="font-body-md text-on-surface-variant max-w-md">
+                            When terrestrial infrastructure fails, LEVITATE units deploy in under 2 hours to provide emergency communication nodes for first responders.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Operational Advantage (Technical Comparison) -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-6 md:px-16 max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-display-lg mb-4">OPERATIONAL SUPERIORITY</h2>
+<p class="font-body-lg text-outline max-w-2xl mx-auto">Cross-spectrum dominance over traditional aerospace platforms.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- vs Satellites -->
+<div class="space-y-8">
+<div class="flex items-center gap-4">
+<span class="text-label-caps font-label-caps text-on-surface bg-surface-variant px-3 py-1">VS SATELLITES</span>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-2">
+<div class="font-data-mono text-primary text-xl">10MS</div>
+<div class="font-label-caps text-outline uppercase">Latency (vs 600ms+)</div>
+</div>
+<div class="space-y-2">
+<div class="font-data-mono text-primary text-xl">10CM/PX</div>
+<div class="font-label-caps text-outline uppercase">Imaging Res</div>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant">
+                            By operating at 20km altitude instead of 500km, our platforms achieve fiber-optic speeds and surveillance resolution that makes orbital assets obsolete for regional operations.
+                        </p>
+</div>
+<!-- vs Drones -->
+<div class="space-y-8">
+<div class="flex items-center gap-4">
+<span class="text-label-caps font-label-caps text-on-surface bg-surface-variant px-3 py-1">VS TACTICAL DRONES</span>
+<div class="h-[1px] flex-grow bg-outline-variant"></div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-2">
+<div class="font-data-mono text-primary text-xl">90 DAYS</div>
+<div class="font-label-caps text-outline uppercase">Station Endurance</div>
+</div>
+<div class="space-y-2">
+<div class="font-data-mono text-primary text-xl">65K FT</div>
+<div class="font-label-caps text-outline uppercase">Cruising Altitude</div>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant">
+                            Operating above commercial airspace and weather systems, LEVITATE HAPS offer months of endurance compared to the hours offered by standard military UAVs.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission Integration (CTA) -->
+<section class="py-32 relative overflow-hidden">
+<!-- Decorative Crosshair Background -->
+<div class="absolute inset-0 pointer-events-none opacity-5">
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary rounded-full"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-primary rounded-full"></div>
+<div class="absolute top-1/2 left-0 w-full h-[1px] bg-primary"></div>
+<div class="absolute left-1/2 top-0 h-full w-[1px] bg-primary"></div>
+</div>
+<div class="relative z-10 px-6 md:px-16 max-w-3xl mx-auto text-center">
+<h2 class="font-display-lg text-display-lg mb-8 uppercase">Mission Integration</h2>
+<p class="font-body-lg text-on-surface-variant mb-12">
+                    Levitate Dynamics partners with defense, government, and telecommunication providers to deploy bespoke stratospheric constellations.
+                </p>
+<div class="glass-panel p-10 luminous-border text-left relative">
+<div class="absolute top-0 right-10 -translate-y-1/2 px-4 py-1 bg-primary text-on-primary font-data-mono text-[10px] tracking-widest">
+                        SECURE LINE
+                    </div>
+<form class="space-y-6" onsubmit="return false;">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-outline text-[10px]">ORGANIZATION TYPE</label>
+<select class="w-full bg-surface-container border-b border-outline-variant border-t-0 border-x-0 focus:ring-0 focus:border-primary text-on-surface py-3">
+<option>DEFENSE / MILITARY</option>
+<option>GOVERNMENTAL AGENCY</option>
+<option>PRIVATE SECTOR TELECOM</option>
+<option>NGO / DISASTER RELIEF</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-outline text-[10px]">SECURITY CLEARANCE REQUIRED</label>
+<div class="flex items-center gap-4 py-3">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-primary bg-surface border-outline-variant focus:ring-primary" name="clearance" type="radio"/>
+<span class="font-data-mono text-[12px]">YES</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="text-primary bg-surface border-outline-variant focus:ring-primary" name="clearance" type="radio"/>
+<span class="font-data-mono text-[12px]">NO</span>
+</label>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-outline text-[10px]">MISSION PARAMETERS</label>
+<textarea class="w-full bg-surface-container border-b border-outline-variant border-t-0 border-x-0 focus:ring-0 focus:border-primary text-on-surface py-3 placeholder:text-outline/40" placeholder="Briefly describe operational requirements..." rows="3"></textarea>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary font-label-caps tracking-widest flex justify-center items-center gap-3 cyan-glow hover:opacity-90">
+                            INITIALIZE REQUEST PROTOCOL
+                            <span class="material-symbols-outlined" data-icon="lock">lock</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="w-full py-12 px-6 md:px-16 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-4">LEVITATE DYNAMICS</div>
+<p class="text-data-mono font-data-mono text-outline text-[10px] leading-relaxed uppercase">
+                    Sovereign Aerospace Independence.<br/>
+                    Forged in the Stratosphere.
+                </p>
+</div>
+<div>
+<h4 class="font-label-caps text-on-surface mb-6">TECHNOLOGY</h4>
+<ul class="space-y-3 font-data-mono text-[11px] text-outline-variant">
+<li><a class="hover:text-primary-fixed-dim transition-all duration-200 uppercase" href="#">SATELLITE TELEMETRY</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-all duration-200 uppercase" href="#">MISSION OVERVIEW</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-all duration-200 uppercase" href="#">STRATOSPHERIC DATA</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-on-surface mb-6">PROTOCOLS</h4>
+<ul class="space-y-3 font-data-mono text-[11px] text-outline-variant">
+<li><a class="hover:text-primary-fixed-dim transition-all duration-200 uppercase" href="#">SECURITY PROTOCOLS</a></li>
+<li><a class="hover:text-primary-fixed-dim transition-all duration-200 uppercase" href="#">LEGAL DISCLOSURE</a></li>
+</ul>
+</div>
+<div class="text-right flex flex-col justify-between">
+<div class="flex justify-end gap-4">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary">terminal</span>
+</div>
+<div class="text-[10px] font-data-mono text-outline mt-8 md:mt-0">
+                    © 2024 LEVITATE DYNAMICS. ALL RIGHTS RESERVED.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>

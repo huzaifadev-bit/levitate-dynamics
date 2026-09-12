@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .glass-panel {
+      background: rgba(19, 19, 22, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(219, 252, 255, 0.15);
+    }
+    .cyan-glow {
+      box-shadow: 0 0 15px rgba(0, 219, 233, 0.3);
+    }
+    .hud-line {
+      background: linear-gradient(90deg, transparent, #00dbe9, transparent);
+      height: 1px;
+      width: 100%;
+    }
+    .scanner-line {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #00dbe9, transparent);
+      position: absolute;
+      width: 100%;
+      top: 0;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#c4c7cc",
+            "outline-variant": "#3b494b",
+            "outline": "#849495",
+            "background": "#131316",
+            "surface-container-lowest": "#0e0e10",
+            "on-primary": "#00363a",
+            "on-secondary": "#273045",
+            "on-tertiary-fixed-variant": "#43474b",
+            "on-error-container": "#ffdad6",
+            "surface-container-high": "#2a2a2c",
+            "secondary-container": "#40495f",
+            "error": "#ffb4ab",
+            "primary": "#dbfcff",
+            "surface-container": "#201f22",
+            "on-tertiary-fixed": "#181c20",
+            "on-primary-fixed": "#002022",
+            "primary-fixed-dim": "#00dbe9",
+            "on-secondary-fixed": "#121b2f",
+            "surface-container-low": "#1c1b1e",
+            "primary-container": "#00f0ff",
+            "tertiary-fixed": "#e0e2e8",
+            "on-secondary-fixed-variant": "#3d475d",
+            "on-tertiary-container": "#5b5f63",
+            "inverse-on-surface": "#313033",
+            "on-surface-variant": "#b9cacb",
+            "surface-container-highest": "#353437",
+            "secondary-fixed": "#d9e2fe",
+            "on-primary-container": "#006970",
+            "surface": "#131316",
+            "tertiary": "#f3f6fb",
+            "surface-variant": "#353437",
+            "primary-fixed": "#7df4ff",
+            "on-secondary-container": "#afb8d3",
+            "on-primary-fixed-variant": "#004f54",
+            "surface-dim": "#131316",
+            "surface-bright": "#3a393b",
+            "on-background": "#e5e1e5",
+            "tertiary-container": "#d7d9de",
+            "surface-tint": "#00dbe9",
+            "inverse-surface": "#e5e1e5",
+            "on-tertiary": "#2d3135",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#bdc6e1",
+            "secondary": "#bdc6e1",
+            "inverse-primary": "#006970",
+            "on-surface": "#e5e1e5",
+            "error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-desktop": "64px",
+            "container-max": "1440px",
+            "gutter": "16px",
+            "margin-mobile": "20px",
+            "unit": "4px"
+          },
+          "fontFamily": {
+            "body-lg": ["Space Grotesk"],
+            "headline-sm": ["Orbitron"],
+            "headline-md": ["Orbitron"],
+            "data-mono": ["Space Grotesk"],
+            "body-md": ["Space Grotesk"],
+            "display-lg": ["Orbitron"],
+            "label-caps": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+            "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "data-mono": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+            "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.2)); transform: scale(1); }
+    50% { opacity: 1; filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.6)); transform: scale(1.02); }
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 1.5s ease-out forwards;
+  }
+  .loader-hidden {
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+
+    /* Navigation link hover animation */
+    .nav-link-hover {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-link-hover:hover {
+      text-shadow: 0 0 10px rgba(0, 219, 233, 0.6);
+      color: #dbfcff;
+    }
+    .nav-link-hover::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #00dbe9;
+      transition: width 0.3s ease;
+    }
+    .nav-link-hover:hover::after {
+      width: 100%;
+    }
+
+    /* Luminous pulse for buttons */
+    @keyframes luminous-pulse {
+      0%, 100% { background-color: #00f0ff; box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
+      50% { background-color: #7df4ff; box-shadow: 0 0 30px rgba(0, 240, 255, 0.8); }
+    }
+    .btn-luminous:hover {
+      animation: luminous-pulse 2s infinite ease-in-out;
+      transform: scale(1.02);
+    }
+
+    /* Card hover effects */
+    .tech-card-hover {
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .tech-card-hover:hover {
+      border-color: #00f0ff;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.3);
+    }
+
+    /* Icon rotation */
+    .icon-hover:hover .material-symbols-outlined {
+      transform: rotate(15deg) scale(1.2);
+      color: #00f0ff !important;
+      transition: all 0.3s ease;
+    }
+  </style></head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed/30 selection:text-primary min-h-screen font-body-md overflow-hidden"><div class="fixed inset-0 z-[100] bg-[#131316] flex flex-col items-center justify-center transition-all duration-1000 ease-in-out" id="splash-loader">
+<div class="relative flex flex-col items-center">
+<img alt="Levitate Dynamics Logo" class="w-64 md:w-80 animate-pulse-glow mb-12" src="https://lh3.googleusercontent.com/aida/ADBb0uhJWC3HRbQWAQa7PlosB_dQS7qiTKZYt9ps2xvxx3uyHX5eYpR3LUPCO_E6i8CBMRC37MRgn74kpiVI22HfwSjKXDekJp8Ao1EWb9M_1xeIyRKPyYUuyCLcgpmEQNEZ6h9BRROsoCtmunslFtum82HJ4Y5FiU3IfDjYJAxWdTZQQXdnWd8WT8K1GZAeBHiuA2MFSnPJYxvNScFSvj3Fq0tT-U6HubFS4jq27PpI-43XpTND66r2WLA0eV2ds9hTdVrAuPjuHETK"/>
+<div class="font-data-mono text-primary-fixed-dim text-sm tracking-[0.3em] animate-fade-in">
+      INITIALIZING STRATOSPHERIC LINK... <span id="progress-val">0%</span>
+</div>
+</div>
+</div>
+<!-- Header: TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 bg-surface/60 backdrop-blur-xl dark:bg-surface/60 border-b border-outline-variant/30">
+<div class="flex items-center gap-4"><img alt="Levitate Dynamics" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhJWC3HRbQWAQa7PlosB_dQS7qiTKZYt9ps2xvxx3uyHX5eYpR3LUPCO_E6i8CBMRC37MRgn74kpiVI22HfwSjKXDekJp8Ao1EWb9M_1xeIyRKPyYUuyCLcgpmEQNEZ6h9BRROsoCtmunslFtum82HJ4Y5FiU3IfDjYJAxWdTZQQXdnWd8WT8K1GZAeBHiuA2MFSnPJYxvNScFSvj3Fq0tT-U6HubFS4jq27PpI-43XpTND66r2WLA0eV2ds9hTdVrAuPjuHETK"/>
+<span class="hidden lg:block text-label-caps font-headline-sm tracking-widest text-primary dark:text-primary-fixed-dim ml-2">LEVITATE DYNAMICS</span></div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300 nav-link-hover" href="#">PLATFORM</a>
+<a class="text-primary font-bold border-b-2 border-primary-fixed pb-1" href="#">APPLICATIONS</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300 nav-link-hover" href="#">STRATEGIC TECH</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300 nav-link-hover" href="#">INVESTORS</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300 nav-link-hover" href="#">R&amp;D</a>
+</nav>
+<button class="px-6 py-2 bg-primary text-on-primary font-label-caps rounded-sm hover:brightness-110 transition-all btn-luminous">
+      COMMAND CENTER
+    </button>
+</header>
+<main>
+<!-- Hero Section: Cinematic Command Center -->
+<section class="relative h-screen w-full flex items-center overflow-hidden pt-16">
+<!-- Background Asset -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A cinematic 3D rendering of a futuristic high-altitude pseudo-satellite (HAPS) aircraft with sleek solar-panel wings, gliding gracefully through the deep blue stratospheric twilight above the glowing curvature of the Earth. The aircraft is rendered with metallic silver textures and neon cyan light accents. The background features a vast, dark midnight blue cosmic space punctuated by distant stars and the atmospheric glow of the planet below. The lighting is dramatic and high-contrast, evoking a sense of deep-tech aerospace innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA96KKLjtVhQXj9Z3cePxcSDUhfDH5TwVjwpWV8gJskbaTKHH6uTY4rhEoNk37gbrdM7pi7JaD1utOPJjC4Jr9O7WIN6QBDFi9tsKNmErb7-x9MqN0X-f_lMIuX3wI8PekYkDpDT6H6kU1QAALo3si6a5kJVwcCtw_DBrR6h2NJT_uyk6vZRMcoopSUxBRQdaC_0_JogNnxKUzOfRmbF4GY-09Gq8MmjszDQgwH43bOGeQ6sdoc_-PJw39v-eu6lsZ6dT-bOdyf5N0"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background"></div>
+</div>
+<!-- Telemetry Overlays -->
+<div class="absolute top-32 left-margin-desktop space-y-4 z-20">
+<div class="glass-panel p-4 w-64 border-l-4 border-l-primary-fixed tech-card-hover">
+<div class="flex justify-between items-end">
+<span class="text-label-caps font-label-caps text-outline uppercase tracking-widest">Altitude (M)</span>
+<span class="text-headline-sm font-headline-sm text-primary">20,480</span>
+</div>
+<div class="w-full bg-outline-variant/30 h-1 mt-2">
+<div class="bg-primary-fixed h-full w-[82%]"></div>
+</div>
+</div>
+<div class="glass-panel p-4 w-64 border-l-4 border-l-primary-fixed tech-card-hover">
+<div class="flex justify-between items-end">
+<span class="text-label-caps font-label-caps text-outline uppercase tracking-widest">Solar Efficiency</span>
+<span class="text-headline-sm font-headline-sm text-primary">94.2%</span>
+</div>
+<div class="w-full bg-outline-variant/30 h-1 mt-2">
+<div class="bg-primary-fixed h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-24 right-margin-desktop z-20">
+<div class="glass-panel p-6 w-80 text-right tech-card-hover">
+<span class="text-label-caps font-label-caps text-primary-fixed tracking-[0.2em] block mb-2">SYSTEM STATUS: OPTIMAL</span>
+<p class="text-data-mono font-data-mono text-on-surface-variant text-xs">AEROSPACE VECTOR LOCKING: STABLE<br/>STRATOSPHERIC DATA FEED: ACTIVE<br/>SOVEREIGN ENCRYPTION: LEVEL 9</p>
+</div>
+</div>
+<!-- Main Hero Content -->
+<div class="relative z-10 px-margin-desktop max-w-4xl">
+<span class="text-label-caps font-label-caps text-primary-fixed tracking-[0.3em] block mb-4">SOVEREIGN AEROSPACE INDEPENDENCE</span>
+<h1 class="text-display-lg font-display-lg text-primary uppercase leading-tight mb-8">
+          The Future of <br/> Stratospheric <br/> <span class="text-primary-fixed-dim">Intelligence.</span>
+</h1>
+<div class="flex gap-4">
+<button class="px-10 py-4 bg-primary-container text-on-primary-container font-headline-sm text-sm tracking-widest flex items-center gap-3 transition-transform hover:scale-105 cyan-glow btn-luminous">
+            EXPLORE TECHNOLOGY
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<button class="px-10 py-4 border border-outline text-primary font-headline-sm text-sm tracking-widest hover:bg-primary-fixed/10 transition-all">
+            WATCH MISSION
+          </button>
+</div>
+</div>
+</section>
+<!-- Mission Control Dashboard Section -->
+<section class="py-24 px-margin-desktop bg-surface-container-lowest relative">
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+<div class="mb-16">
+<span class="text-label-caps font-label-caps text-outline tracking-widest uppercase">Platform Ecosystem</span>
+<h2 class="text-headline-md font-headline-md text-primary mt-2">COMMAND CENTER OVERVIEW</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Bento Item 1: Real-time Telemetry -->
+<div class="md:col-span-2 glass-panel relative p-8 group overflow-hidden tech-card-hover icon-hover">
+<div class="scanner-line"></div>
+<div class="flex justify-between items-start mb-12">
+<div>
+<span class="text-label-caps font-label-caps text-primary-fixed mb-1 block">LIVE TELEMETRY</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">GLOBAL HAPS DEPLOYMENT</h3>
+</div>
+<span class="material-symbols-outlined text-primary-fixed text-4xl">public</span>
+</div>
+<div class="h-64 w-full relative">
+<img class="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A high-tech digital map visualization showing global stratospheric flight paths as glowing cyan arcs across a dark minimalist world map. The map uses deep midnight blue and space black tones, with neon electric cyan data points indicating HAPS satellite positions. Information overlays include angular coordinate boxes and scrolling digital telemetry data, creating a complex command center visual interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRKvrxdQDO4Sahop8w67u9x_j3s0Jh_DUS8rH4NAgdFpISCaKfpZT7UkSaWcd3N3X2pcBd6mBro43LjZXu8RKDU9W9Jakh1mRoCdlm1_izr9FLhEWU8jHdciyigIiiNN0NkXzb1fVuPJnLkB4FDv47V6Jm0IGttZDIVXsHNsefCFK-ynAYbQsLGZmkVYL2xQkG1dO3kMw4rt41AAVDsvTd_Twz8xQA4uAAuqcR4Dg6fqm490-L9IuKMm6AnaiiF5BsQHVmT8H35Ls"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="p-4 border border-primary-fixed/20 bg-background/80 backdrop-blur-md">
+<span class="text-data-mono font-data-mono text-primary text-sm">48 ACTIVE UNITS | 100% UPTIME</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Item 2: Stratospheric Data -->
+<div class="glass-panel p-8 flex flex-col justify-between border-t-4 border-t-secondary tech-card-hover">
+<div>
+<span class="text-label-caps font-label-caps text-outline mb-1 block">DATA INTEGRITY</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">STRATOSPHERIC SENSING</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-4">
+              Hyper-spectral imaging and signal intelligence gathered from 20km altitude with sub-meter precision.
+            </p>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/30">
+<div class="flex items-center gap-4 text-primary-fixed">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="text-data-mono font-data-mono">ENCRYPTED UP-LINK</span>
+</div>
+</div>
+</div>
+<!-- Bento Item 3: Propulsion -->
+<div class="glass-panel p-8 border-r-4 border-r-primary-fixed-dim tech-card-hover">
+<span class="text-label-caps font-label-caps text-outline mb-1 block">ENERGY SYSTEMS</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">SOLAR PERPETUITY</h3>
+<div class="mt-6 space-y-4">
+<div class="flex justify-between text-data-mono text-xs uppercase text-outline">
+<span>Charge Rate</span>
+<span class="text-primary-fixed-dim">Optimal</span>
+</div>
+<div class="h-1 bg-outline-variant/20">
+<div class="h-full bg-primary-fixed-dim w-3/4"></div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant text-sm italic">
+              "Continuous flight duration exceeding 180 days via proprietary photovoltaic skin."
+            </p>
+</div>
+</div>
+<!-- Bento Item 4: Strategic Tech -->
+<div class="md:col-span-2 glass-panel p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gradient-to-br from-surface-container to-surface-container-high tech-card-hover">
+<div class="relative aspect-square">
+<img class="w-full h-full object-cover rounded-sm opacity-80 border border-outline-variant" data-alt="Macro detail shot of a futuristic aerospace carbon fiber wing structure with embedded fiber-optic sensors glowing with electric cyan light. The lighting is moody and industrial, highlighting the high-tech weave of the composite materials. The aesthetic is clean, precision-engineered, and incredibly modern, set against a dark, shadowy lab environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaxKgbkY2H99ck-Ry3BAR8uQFRwPwrkJXTlN9BQuPRT62HkE28wgdLuUkEzeIEGbHFLHHz8Za0LLYfahJH3bJ_JpzQsAovwsahIv4PdIVqSekJGznWKdyZnCtCRWriUWI_ZTpJwaj37hFqNn-1mdxw-9FhBf8qhc5R2_qI1mULU4HkUtG0HmxThhRGvSRMJp6xUG1R23GORd-g-GmkhTIf23hrthCctzMfdRsGiaw-ZoNjEZnafXsFsNCgyTYxBeAG-HOlNflufbI"/>
+<div class="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-primary"></div>
+<div class="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-primary"></div>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4">LEVITATE DYNAMICS CORE</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">
+              Developed through decades of indigenous aerospace research, our platform provides sovereign technological independence for communication, observation, and strategic defense.
+            </p>
+<a class="text-label-caps font-label-caps text-primary border-b border-primary pb-1 hover:text-primary-fixed transition-colors" href="#">
+              VIEW SPECIFICATIONS
+            </a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer: Footer -->
+<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 py-12 px-margin-desktop">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<span class="text-label-caps font-label-caps text-on-surface-variant block mb-6">LEVITATE DYNAMICS</span>
+<p class="text-body-md font-body-md text-outline leading-relaxed max-w-xs">
+          Empowering nations through sovereign stratospheric aerospace solutions.
+        </p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-label-caps font-label-caps text-primary-fixed-dim icon-hover">CAPABILITIES</span>
+<a class="text-outline-variant text-data-mono font-data-mono text-xs hover:text-primary-fixed-dim hover:underline decoration-primary-fixed transition-all duration-200" href="#">SATELLITE TELEMETRY</a>
+<a class="text-outline-variant text-data-mono font-data-mono text-xs hover:text-primary-fixed-dim hover:underline decoration-primary-fixed transition-all duration-200" href="#">MISSION OVERVIEW</a>
+<a class="text-outline-variant text-data-mono font-data-mono text-xs hover:text-primary-fixed-dim hover:underline decoration-primary-fixed transition-all duration-200" href="#">STRATOSPHERIC DATA</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-label-caps font-label-caps text-primary-fixed-dim icon-hover">PROTOCOLS</span>
+<a class="text-outline-variant text-data-mono font-data-mono text-xs hover:text-primary-fixed-dim hover:underline decoration-primary-fixed transition-all duration-200" href="#">LEGAL DISCLOSURE</a>
+<a class="text-outline-variant text-data-mono font-data-mono text-xs hover:text-primary-fixed-dim hover:underline decoration-primary-fixed transition-all duration-200" href="#">SECURITY PROTOCOLS</a>
+</div>
+<div class="flex flex-col justify-between">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors transition-all duration-300 icon-hover">hub</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors transition-all duration-300 icon-hover">language</span>
+<span class="material-symbols-outlined text-outline hover:text-primary cursor-pointer transition-colors transition-all duration-300 icon-hover">radar</span>
+</div>
+<div class="mt-8 md:mt-0">
+<p class="text-label-caps font-label-caps text-outline text-[10px] leading-tight">
+            © 2024 LEVITATE DYNAMICS. SOVEREIGN AEROSPACE INDEPENDENCE.
+          </p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const progress = document.getElementById('progress-val');
+    const loader = document.getElementById('splash-loader');
+    let val = 0;
+    
+    const interval = setInterval(() => {
+      val += Math.floor(Math.random() * 15) + 5;
+      if (val >= 100) {
+        val = 100;
+        clearInterval(interval);
+        setTimeout(() => {
+          loader.classList.add('loader-hidden');
+          document.body.classList.remove('overflow-hidden');
+        }, 500);
+      }
+      progress.innerText = val + '%';
+    }, 150);
+
+    document.body.classList.add('overflow-hidden');
+  });
+</script></body></html>

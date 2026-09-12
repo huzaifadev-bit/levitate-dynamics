@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#181c20",
+                    "primary": "#dbfcff",
+                    "on-primary-fixed": "#002022",
+                    "outline-variant": "#3b494b",
+                    "surface-container-highest": "#353437",
+                    "tertiary": "#f3f6fb",
+                    "error": "#ffb4ab",
+                    "on-primary": "#00363a",
+                    "inverse-on-surface": "#313033",
+                    "tertiary-fixed-dim": "#c4c7cc",
+                    "tertiary-container": "#d7d9de",
+                    "primary-container": "#00f0ff",
+                    "outline": "#849495",
+                    "surface-variant": "#353437",
+                    "secondary-fixed-dim": "#bdc6e1",
+                    "on-error": "#690005",
+                    "tertiary-fixed": "#e0e2e8",
+                    "on-secondary-fixed": "#121b2f",
+                    "surface-container-low": "#1c1b1e",
+                    "on-surface": "#e5e1e5",
+                    "on-tertiary-container": "#5b5f63",
+                    "error-container": "#93000a",
+                    "surface-bright": "#3a393b",
+                    "primary-fixed": "#7df4ff",
+                    "surface-container-lowest": "#0e0e10",
+                    "on-secondary": "#273045",
+                    "inverse-surface": "#e5e1e5",
+                    "on-surface-variant": "#b9cacb",
+                    "surface": "#131316",
+                    "primary-fixed-dim": "#00dbe9",
+                    "on-tertiary": "#2d3135",
+                    "on-primary-container": "#006970",
+                    "on-secondary-container": "#afb8d3",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#004f54",
+                    "inverse-primary": "#006970",
+                    "on-background": "#e5e1e5",
+                    "surface-container": "#201f22",
+                    "background": "#131316",
+                    "surface-tint": "#00dbe9",
+                    "secondary-container": "#40495f",
+                    "on-tertiary-fixed-variant": "#43474b",
+                    "on-secondary-fixed-variant": "#3d475d",
+                    "surface-container-high": "#2a2a2c",
+                    "surface-dim": "#131316",
+                    "secondary-fixed": "#d9e2fe",
+                    "secondary": "#bdc6e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-desktop": "64px",
+                    "container-max": "1440px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Space Grotesk"],
+                    "display-lg": ["Orbitron"],
+                    "headline-md": ["Orbitron"],
+                    "body-lg": ["Space Grotesk"],
+                    "headline-sm": ["Orbitron"],
+                    "data-mono": ["Space Grotesk"],
+                    "body-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "data-mono": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(19, 19, 22, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(132, 148, 149, 0.2);
+        }
+        .cyan-glow {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+        }
+        .cyan-glow-inner {
+            box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(19, 19, 22, 0.2) 0%, rgba(19, 19, 22, 1) 100%);
+        }
+        .data-divider {
+            background: linear-gradient(90deg, transparent 0%, #3b494b 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="text-headline-sm font-headline-sm tracking-widest text-primary">LEVITATE DYNAMICS</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">PLATFORM</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">APPLICATIONS</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">STRATEGIC TECH</a>
+<a class="text-primary font-bold border-b-2 border-primary-fixed pb-1 font-label-caps tracking-tighter" href="#">INVESTORS</a>
+<a class="text-on-surface-variant font-label-caps tracking-tighter hover:text-primary transition-colors duration-300" href="#">R&amp;D</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-caps px-6 py-2 tracking-widest hover:shadow-[0_0_15px_rgba(0,219,233,0.5)] transition-all">COMMAND CENTER</button>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Levitate Dynamics HAPS Fleet" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="A cinematic low-angle shot of a fleet of sleek, high-altitude pseudo-satellites (HAPS) gliding through the dark stratospheric layer against the backdrop of the Earth's blue curvature. The lighting is dramatic, with cold electric cyan sunlight hitting the metallic surfaces of the aircraft. The atmosphere is quiet, technological, and vast, emphasizing sovereign aerospace independence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Wtrfa8obxadyVdEaTn9OF3ZRf__6ta1ex9YQIXo-ERLQf_EGyndwn84VArDq-ESpbRdchohsZlFk3oTlincxlFqgKSvWlQ2zVS0Ky6mL97f_zYK6fPEqJh5PgNyvHWFjjW0fJ2j9TdkQMm6nTJW5pA-Kn9r9h5elg9L1tP5ei_f9D7og8u3ElJ6lIk_shVf_2Q4iCnk8ZThNQTTmMgHW03rcdtig6xowKQz1fSjQDQg6-1tK9tvKHRcNXJZH27vLy3FCO5onIxE"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<div class="flex items-center space-x-3 mb-6">
+<span class="w-2 h-2 bg-primary-container animate-pulse"></span>
+<span class="text-data-mono font-data-mono text-primary tracking-widest uppercase">LIVE TELEMETRY: MARKET DATA CONNECTED</span>
+</div>
+<h1 class="text-display-lg font-display-lg text-primary mb-8 leading-tight">SOVEREIGN VALUE.<br/>STRATOSPHERIC GROWTH.</h1>
+<div class="glass-card p-4 inline-flex items-center space-x-6 border-primary/30 cyan-glow-inner">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline mb-1">EQUITY INSTRUMENT</span>
+<span class="text-headline-sm font-headline-sm text-on-surface">LD-X SERIES B</span>
+</div>
+<div class="h-10 w-px bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline mb-1">STATUS</span>
+<span class="text-headline-sm font-headline-sm text-primary-fixed flex items-center">
+                            FULLY SUBSCRIBED
+                            <span class="material-symbols-outlined ml-2 text-sm">verified</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Vertical Ticker Overlay -->
+<div class="absolute right-margin-desktop bottom-margin-desktop hidden lg:block">
+<div class="flex flex-col items-end space-y-4 font-data-mono text-data-mono text-outline-variant">
+<span>COORD: 34.0522° N, 118.2437° W</span>
+<span>ALTITUDE: 65,000 FT</span>
+<span class="text-primary">VALUATION: $4.2B USD</span>
+</div>
+</div>
+</section>
+<!-- Financial Highlights -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div>
+<span class="text-label-caps font-label-caps text-primary tracking-widest block mb-4">PERFORMANCE METRICS</span>
+<h2 class="text-headline-md font-headline-md text-on-surface">FINANCIAL TELEMETRY</h2>
+</div>
+<div class="text-right">
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md">Real-time data synchronization across our sovereign satellite mesh, delivering unparalleled R&amp;D efficiency and market scaling.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- TAM -->
+<div class="glass-card p-8 group hover:border-primary/50 transition-all duration-500 cyan-glow-inner relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<span class="text-label-caps font-label-caps text-outline tracking-widest block mb-8">TOTAL ADDRESSABLE MARKET (TAM)</span>
+<div class="flex items-baseline space-x-2 mb-4">
+<span class="text-display-lg font-display-lg text-on-surface">$125</span>
+<span class="text-headline-sm font-headline-sm text-primary-fixed">BN</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Targeting global stratospheric telecommunications and sovereign surveillance sectors.</p>
+<div class="mt-8 h-1 w-full bg-surface-container-highest">
+<div class="h-full bg-primary w-2/3 shadow-[0_0_8px_#00f0ff]"></div>
+</div>
+</div>
+<!-- Growth -->
+<div class="glass-card p-8 group hover:border-primary/50 transition-all duration-500 cyan-glow-inner relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<span class="text-label-caps font-label-caps text-outline tracking-widest block mb-8">YEAR-OVER-YEAR GROWTH</span>
+<div class="flex items-baseline space-x-2 mb-4">
+<span class="text-display-lg font-display-lg text-on-surface">+340</span>
+<span class="text-headline-sm font-headline-sm text-primary-fixed">%</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Accelerated deployment of Gen-3 HAPS units across EMEA and APAC regions.</p>
+<div class="mt-8 flex justify-between items-end h-16">
+<div class="w-2 bg-primary/20 h-4"></div>
+<div class="w-2 bg-primary/30 h-8"></div>
+<div class="w-2 bg-primary/50 h-10"></div>
+<div class="w-2 bg-primary/70 h-14"></div>
+<div class="w-2 bg-primary h-16 shadow-[0_0_10px_#00f0ff]"></div>
+</div>
+</div>
+<!-- Efficiency -->
+<div class="glass-card p-8 group hover:border-primary/50 transition-all duration-500 cyan-glow-inner relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+</div>
+<span class="text-label-caps font-label-caps text-outline tracking-widest block mb-8">R&amp;D EFFICIENCY INDEX</span>
+<div class="flex items-baseline space-x-2 mb-4">
+<span class="text-display-lg font-display-lg text-on-surface">0.92</span>
+<span class="text-headline-sm font-headline-sm text-primary-fixed">PHI</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">Optimized proprietary aerospace modeling reducing prototype-to-orbit latency.</p>
+<div class="mt-8 grid grid-cols-4 gap-1">
+<div class="h-1 bg-primary"></div>
+<div class="h-1 bg-primary"></div>
+<div class="h-1 bg-primary"></div>
+<div class="h-1 bg-outline-variant"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Strategic Roadmap -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-16">
+<span class="text-label-caps font-label-caps text-primary tracking-widest block mb-4">EXECUTION TIMELINE</span>
+<h2 class="text-headline-md font-headline-md text-on-surface uppercase">Strategic Roadmap</h2>
+</div>
+<div class="relative space-y-24 before:absolute before:left-1/2 before:top-0 before:h-full before:w-px before:bg-outline-variant/30 before:hidden md:before:block">
+<!-- Phase 1 -->
+<div class="relative flex flex-col md:flex-row items-center justify-between group">
+<div class="md:w-[45%] mb-8 md:mb-0 text-right">
+<span class="text-data-mono font-data-mono text-outline-variant block mb-2">Q4 2023 - Q2 2024</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4">PHASE 1: PROTOTYPE ASCENSION</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Successful deployment of the LD-1 solar-electric prototype into the stratosphere for continuous 90-day operation.</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-primary border-4 border-background rounded-full hidden md:block z-10 shadow-[0_0_15px_#00f0ff]"></div>
+<div class="md:w-[45%] flex justify-start pl-12 hidden md:block">
+<div class="w-24 h-px bg-primary/30"></div>
+</div>
+</div>
+<!-- Phase 2 -->
+<div class="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+<div class="md:w-[45%] mb-8 md:mb-0 text-left">
+<span class="text-data-mono font-data-mono text-outline-variant block mb-2">Q3 2024 - Q4 2025</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4">PHASE 2: SOVEREIGN MESH DEPLOYMENT</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Initializing the first autonomous mesh network of 50 HAPS units, providing secure data bridging for tier-1 strategic partners.</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-outline-variant border-4 border-background rounded-full hidden md:block z-10 group-hover:bg-primary transition-colors"></div>
+<div class="md:w-[45%] flex justify-end pr-12 hidden md:block">
+<div class="w-24 h-px bg-outline-variant/30"></div>
+</div>
+</div>
+<!-- Phase 3 -->
+<div class="relative flex flex-col md:flex-row items-center justify-between group">
+<div class="md:w-[45%] mb-8 md:mb-0 text-right">
+<span class="text-data-mono font-data-mono text-outline-variant block mb-2">2026 AND BEYOND</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4">PHASE 3: GLOBAL TELECOM DOMINANCE</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Full commercial rollout of Levitate Dynamics' stratospheric network, achieving sub-10ms global latency for 6G protocols.</p>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-outline-variant border-4 border-background rounded-full hidden md:block z-10 group-hover:bg-primary transition-colors"></div>
+<div class="md:w-[45%] flex justify-start pl-12 hidden md:block">
+<div class="w-24 h-px bg-outline-variant/30"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Investor Resources: The Vault -->
+<section class="py-24 px-margin-desktop bg-surface">
+<div class="max-w-container-max mx-auto">
+<div class="glass-card p-12 border-primary/20 cyan-glow-inner relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<div class="grid grid-cols-12 h-full">
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+<div class="border-r border-primary h-full"></div>
+</div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center space-x-4 mb-12">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">INVESTOR VAULT</h2>
+<p class="text-data-mono font-data-mono text-outline uppercase tracking-widest">ENCRYPTED DATASET ACCESS</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Resource 1 -->
+<a class="group flex items-center justify-between p-6 bg-surface-container hover:bg-primary-container transition-all duration-300" href="#">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline group-hover:text-on-primary-container">TECHNICAL DOSSIER</span>
+<span class="text-body-lg font-body-lg text-on-surface group-hover:text-on-primary-container">FY2024 Outlook.pdf</span>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container">download</span>
+</a>
+<!-- Resource 2 -->
+<a class="group flex items-center justify-between p-6 bg-surface-container hover:bg-primary-container transition-all duration-300" href="#">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline group-hover:text-on-primary-container">FINANCIALS</span>
+<span class="text-body-lg font-body-lg text-on-surface group-hover:text-on-primary-container">Annual_Report_23.pdf</span>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container">download</span>
+</a>
+<!-- Resource 3 -->
+<a class="group flex items-center justify-between p-6 bg-surface-container hover:bg-primary-container transition-all duration-300" href="#">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline group-hover:text-on-primary-container">STRUCTURE</span>
+<span class="text-body-lg font-body-lg text-on-surface group-hover:text-on-primary-container">Cap_Table_Overview.xlsx</span>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary-container">download</span>
+</a>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="flex items-center space-x-2 text-primary font-label-caps tracking-widest group">
+<span class="material-symbols-outlined group-hover:rotate-180 transition-transform">refresh</span>
+<span>REQUEST FULL DATA ROOM ACCESS</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact/Inquiry Section -->
+<section class="py-24 px-margin-desktop bg-background">
+<div class="max-w-4xl mx-auto text-center mb-16">
+<span class="text-label-caps font-label-caps text-primary tracking-widest block mb-4">CAPITAL RELATIONS</span>
+<h2 class="text-display-lg font-display-lg text-on-surface mb-6">PRIVATE PLACEMENT INQUIRIES</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Qualified institutional investors may request specialized strategic briefing sessions.</p>
+</div>
+<div class="max-w-2xl mx-auto">
+<form class="space-y-12">
+<div class="relative group">
+<label class="text-label-caps font-label-caps text-outline absolute -top-6 left-0 transition-all group-focus-within:text-primary">ENTITY NAME / FIRM</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 focus:ring-0 focus:border-primary text-on-surface font-body-md" placeholder="Enter formal organization name" type="text"/>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="relative group">
+<label class="text-label-caps font-label-caps text-outline absolute -top-6 left-0 transition-all group-focus-within:text-primary">AUTHORITY EMAIL</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 focus:ring-0 focus:border-primary text-on-surface font-body-md" placeholder="admin@firm.com" type="email"/>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="relative group">
+<label class="text-label-caps font-label-caps text-outline absolute -top-6 left-0 transition-all group-focus-within:text-primary">INVESTMENT TIER</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant py-4 focus:ring-0 focus:border-primary text-on-surface font-body-md appearance-none">
+<option class="bg-surface">Tier A: Institutional Venture</option>
+<option class="bg-surface">Tier B: Strategic Corporate</option>
+<option class="bg-surface">Tier C: Private Equity</option>
+</select>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+</div>
+<div class="pt-8">
+<button class="w-full bg-primary text-on-primary py-6 text-label-caps tracking-[0.2em] font-bold hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] transition-all flex items-center justify-center space-x-4" type="submit">
+<span>TRANSMIT INQUIRY PROTOCOL</span>
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Corporate Governance & Transparency Section -->
+<section class="py-24 px-margin-desktop bg-surface-container-low border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto">
+<div class="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end">
+<div>
+<span class="text-label-caps font-label-caps text-primary tracking-widest block mb-4 uppercase">Compliance Protocol</span>
+<h2 class="text-headline-md font-headline-md text-on-surface uppercase">Corporate Governance &amp; Transparency</h2>
+</div>
+<div class="mt-4 md:mt-0">
+<span class="text-data-mono font-data-mono text-outline-variant text-xs">DOC_REF: LD-GOV-2025-V1</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="glass-card p-8 border-outline-variant/20 relative">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-4xl">account_balance</span>
+</div>
+<h3 class="text-label-caps font-label-caps text-outline mb-6">ENTITY REGISTRATION</h3>
+<div class="space-y-6 font-data-mono">
+<div>
+<span class="text-xs text-outline-variant block mb-1">CORPORATE IDENTIFICATION NUMBER (CIN)</span>
+<span class="text-body-lg text-primary tracking-widest">U30305MH2025PTC447508</span>
+</div>
+<div>
+<span class="text-xs text-outline-variant block mb-1">REGISTERED OFFICE</span>
+<p class="text-on-surface leading-relaxed uppercase">
+              Flat No 301, Borkute Layout, Narendra Nagar,<br/>
+              Nagpur, Maharashtra - 440015
+            </p>
+</div>
+</div>
+</div>
+<div class="glass-card p-8 border-outline-variant/20 relative">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-4xl">monetization_on</span>
+</div>
+<h3 class="text-label-caps font-label-caps text-outline mb-6">CAPITALIZATION STRUCTURE</h3>
+<div class="grid grid-cols-2 gap-8 font-data-mono">
+<div>
+<span class="text-xs text-outline-variant block mb-1">AUTHORIZED CAPITAL</span>
+<span class="text-body-lg text-on-surface">₹1,00,000</span>
+</div>
+<div>
+<span class="text-xs text-outline-variant block mb-1">PAID-UP CAPITAL</span>
+<span class="text-body-lg text-on-surface">₹1,00,000</span>
+</div>
+</div>
+<div class="mt-10 pt-6 border-t border-outline-variant/10">
+<div class="flex items-center space-x-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-xs text-on-surface-variant uppercase">Audited Financial Year Ending 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><footer class="w-full py-12 px-margin-desktop bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<div class="text-label-caps font-label-caps text-on-surface-variant mb-6">LEVITATE DYNAMICS</div>
+<p class="text-data-mono font-data-mono text-outline text-xs leading-relaxed">
+                    SOVEREIGN AEROSPACE INDEPENDENCE.<br/>
+                    STRATOSPHERIC COMMAND CENTER: LD-HQ-01
+                </p>
+</div>
+<div>
+<h4 class="text-label-caps font-label-caps text-primary-fixed mb-4">RESOURCES</h4>
+<ul class="space-y-2">
+<li><a class="text-data-mono font-data-mono text-outline-variant text-sm hover:text-primary-fixed-dim transition-all hover:underline decoration-primary/50" href="#">SATELLITE TELEMETRY</a></li>
+<li><a class="text-data-mono font-data-mono text-outline-variant text-sm hover:text-primary-fixed-dim transition-all hover:underline decoration-primary/50" href="#">MISSION OVERVIEW</a></li>
+<li><a class="text-data-mono font-data-mono text-outline-variant text-sm hover:text-primary-fixed-dim transition-all hover:underline decoration-primary/50" href="#">STRATOSPHERIC DATA</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-caps font-label-caps text-primary-fixed mb-4">SECURITY</h4>
+<ul class="space-y-2">
+<li><a class="text-data-mono font-data-mono text-outline-variant text-sm hover:text-primary-fixed-dim transition-all hover:underline decoration-primary/50" href="#">LEGAL DISCLOSURE</a></li>
+<li><a class="text-data-mono font-data-mono text-outline-variant text-sm hover:text-primary-fixed-dim transition-all hover:underline decoration-primary/50" href="#">SECURITY PROTOCOLS</a></li>
+</ul>
+</div>
+<div class="md:col-span-1 text-right flex flex-col justify-end"><div class="text-data-mono text-[10px] text-outline-variant uppercase mb-4 space-y-1">
+<div>CIN: U30305MH2025PTC447508</div>
+<div>Reg Office: Flat No 301, Borkute Layout, Narendra Nagar, Nagpur - 440015</div>
+</div>
+<p class="text-body-md font-body-md text-outline text-xs">
+    © 2024 LEVITATE DYNAMICS. SOVEREIGN AEROSPACE INDEPENDENCE.
+</p></div>
+</div>
+</footer>
+</body></html>

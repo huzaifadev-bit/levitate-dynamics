@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { href: "/tech", label: "TECHNOLOGY" },
-  { href: "/haps", label: "HAPS" },
+  { href: "/platforms", label: "PLATFORMS" },
   { href: "/about", label: "ABOUT" },
   { href: "/investors", label: "INVESTORS" },
   { href: "/contact", label: "CONTACT" },
@@ -91,7 +91,7 @@ export default function Header() {
             href="/contact"
             className="px-5 py-2.5 bg-white hover:bg-slate-100 text-black text-xs font-semibold tracking-wider uppercase rounded-sm transition-all"
           >
-            CONTACT
+            CONTACT US
           </Link>
         </div>
 
@@ -101,7 +101,7 @@ export default function Header() {
             href="/contact"
             className="px-3.5 py-1.5 bg-white text-black text-[11px] font-semibold tracking-wider uppercase rounded-sm"
           >
-            CONTACT
+            CONTACT US
           </Link>
 
           <button

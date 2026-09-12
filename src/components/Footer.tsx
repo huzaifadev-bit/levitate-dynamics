@@ -36,8 +36,8 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white group-hover:text-[#00dbe9] transition-colors">
-                LEVITATE DYNAMICS
+              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white group-hover:text-zinc-200 transition-colors">
+                LEVITATE DYNAMICS PRIVATE LIMITED
               </span>
             </Link>
             <p className="text-slate-400 font-body-md text-xs sm:text-sm leading-relaxed max-w-sm">

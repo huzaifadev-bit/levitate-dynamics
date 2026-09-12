@@ -22,11 +22,12 @@ export default function HapsPage() {
         <section className="relative min-h-[80vh] flex items-end pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-b border-white/10">
           <div className="absolute inset-0 z-0">
             <img
-              src={p.image}
-              alt="Levitate Dynamics Flagship HAPS"
-              className="w-full h-full object-cover opacity-50 filter brightness-[0.8] contrast-[1.05]"
+              src="/haps-aircraft.jpg"
+              alt="Levitate Dynamics HAPS Platform"
+              className="w-full h-full object-cover object-center sm:object-[center_35%] opacity-85 sm:opacity-90 filter contrast-[1.05]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/45 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#09090b]/80 via-[#09090b]/35 to-transparent"></div>
           </div>
 
           <div className="relative z-10 max-w-container-max mx-auto w-full">

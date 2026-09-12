@@ -91,39 +91,51 @@ export default function Home() {
             1. HERO SECTION
             ============================================================ */}
         <section className="relative min-h-[92vh] flex items-center justify-start px-4 sm:px-6 md:px-10 lg:px-16 pt-28 pb-20 overflow-hidden">
-          {/* Cinematic Background Visual */}
+          {/* Cinematic Background Visual - Official HAPS Aircraft */}
           <div className="absolute inset-0 z-0">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA96KKLjtVhQXj9Z3cePxcSDUhfDH5TwVjwpWV8gJskbaTKHH6uTY4rhEoNk37gbrdM7pi7JaD1utOPJjC4Jr9O7WIN6QBDFi9tsKNmErb7-x9MqN0X-f_lMIuX3wI8PekYkDpDT6H6kU1QAALo3si6a5kJVwcCtw_DBrR6h2NJT_uyk6vZRMcoopSUxBRQdaC_0_JogNnxKUzOfRmbF4GY-09Gq8MmjszDQgwH43bOGeQ6sdoc_-PJw39v-eu6lsZ6dT-bOdyf5N0"
-              alt="Levitate Dynamics Stratospheric Aircraft"
-              className="w-full h-full object-cover opacity-45 filter brightness-[0.75] contrast-[1.1]"
+              src="/haps-aircraft.jpg"
+              alt="Levitate Dynamics HAPS Stratospheric Aircraft"
+              className="w-full h-full object-cover object-center sm:object-[center_35%] opacity-85 sm:opacity-90 filter contrast-[1.05]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/50 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#09090b]/90 via-[#09090b]/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#09090b]/85 via-[#09090b]/35 to-transparent"></div>
           </div>
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-4xl max-w-container-max mx-auto w-full">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 rounded-sm mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/15 rounded-sm mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
-              <span className="text-[11px] font-mono text-zinc-300 tracking-[0.22em] uppercase font-semibold">
+              <span className="text-[11px] font-mono text-zinc-200 tracking-[0.22em] uppercase font-semibold">
                 LEVITATE DYNAMICS // SOVEREIGN AEROSPACE
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white uppercase font-headline-md leading-[1.05] mb-6">
-              DESIGNED FOR THE <br />
+              BUILT FOR THE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
                 STRATOSPHERE.
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-zinc-300 font-light max-w-2xl leading-relaxed mb-10 font-body-md">
+            <p className="text-base sm:text-lg md:text-xl text-zinc-200 font-light max-w-2xl leading-relaxed mb-6 font-body-md">
               Levitate Dynamics is building indigenous HAPS and autonomous aerospace systems for persistent intelligence, connectivity, and next-generation aerial operations.
             </p>
 
+            {/* Verified Specifications Alongside Hero */}
+            <div className="grid grid-cols-2 gap-8 py-5 border-y border-white/15 my-6 max-w-xs bg-black/40 backdrop-blur-md px-4 rounded-sm">
+              <div>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline-sm text-white tracking-tight">24 m</div>
+                <div className="text-xs font-mono text-zinc-400 tracking-wider uppercase mt-1 font-semibold">WINGSPAN</div>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline-sm text-white tracking-tight">8 kg</div>
+                <div className="text-xs font-mono text-zinc-400 tracking-wider uppercase mt-1 font-semibold">PAYLOAD</div>
+              </div>
+            </div>
+
             {/* Clean Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center pt-2">
               <Link
                 href="/tech"
                 className="px-6 py-3.5 bg-white hover:bg-zinc-200 text-black font-semibold text-xs tracking-wider uppercase rounded-sm transition-all text-center"
@@ -131,19 +143,11 @@ export default function Home() {
                 EXPLORE TECHNOLOGY
               </Link>
               <Link
-                href="/haps"
-                className="px-6 py-3.5 border border-zinc-700 hover:border-zinc-400 text-white font-semibold text-xs tracking-wider uppercase rounded-sm transition-all text-center bg-transparent"
+                href="/platforms"
+                className="px-6 py-3.5 border border-zinc-400 hover:border-white text-white font-semibold text-xs tracking-wider uppercase rounded-sm transition-all text-center bg-black/40 backdrop-blur-md"
               >
-                EXPLORE HAPS
+                EXPLORE PLATFORMS
               </Link>
-              <button
-                type="button"
-                onClick={() => setIsMissionOpen(true)}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs font-semibold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors"
-              >
-                <span className="material-symbols-outlined text-base text-zinc-300">play_circle</span>
-                <span>WATCH MISSION</span>
-              </button>
             </div>
           </div>
         </section>
@@ -241,7 +245,7 @@ export default function Home() {
                 SOVEREIGN AIRCRAFT
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline-md uppercase text-white tracking-tight">
-                THE FLAGSHIP HAPS
+                LEVITATE DYNAMICS HAPS
               </h2>
             </div>
             <Link
@@ -257,11 +261,11 @@ export default function Home() {
           <div className="bg-[#121216] border border-white/10 rounded-sm overflow-hidden hover:border-white/20 transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               {/* Visual Container */}
-              <div className="lg:col-span-7 relative min-h-[340px] sm:min-h-[440px] lg:min-h-[500px] bg-black overflow-hidden group">
+              <div className="lg:col-span-7 relative min-h-[340px] sm:min-h-[440px] lg:min-h-[520px] bg-black overflow-hidden group">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA96KKLjtVhQXj9Z3cePxcSDUhfDH5TwVjwpWV8gJskbaTKHH6uTY4rhEoNk37gbrdM7pi7JaD1utOPJjC4Jr9O7WIN6QBDFi9tsKNmErb7-x9MqN0X-f_lMIuX3wI8PekYkDpDT6H6kU1QAALo3si6a5kJVwcCtw_DBrR6h2NJT_uyk6vZRMcoopSUxBRQdaC_0_JogNnxKUzOfRmbF4GY-09Gq8MmjszDQgwH43bOGeQ6sdoc_-PJw39v-eu6lsZ6dT-bOdyf5N0"
-                  alt="Levitate Dynamics Flagship HAPS Aircraft"
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700 ease-out"
+                  src="/haps-aircraft.jpg"
+                  alt="Levitate Dynamics HAPS Platform"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#121216]"></div>
                 <div className="absolute top-4 left-4">
@@ -270,7 +274,7 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="absolute bottom-4 left-4 text-[11px] font-mono text-zinc-400">
-                  AUTONOMOUS STRATOSPHERIC PLATFORM
+                  LEVITATE DYNAMICS HAPS
                 </div>
               </div>
 
@@ -281,10 +285,10 @@ export default function Home() {
                     SOVEREIGN AEROSPACE ARCHITECTURE
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold font-headline-sm uppercase text-white tracking-wide mb-4">
-                    PERPETUAL LOITER IN THE STRATOSPHERE
+                    LEVITATE DYNAMICS HAPS
                   </h3>
                   <p className="text-sm text-zinc-300 font-body-md leading-relaxed font-light mb-8">
-                    Operating continuously in the stratosphere, Levitate Dynamics&apos; sovereign High Altitude Pseudo-Satellite bridges the gap between tactical UAVs and orbital satellites, delivering persistent aerial presence.
+                    A long-endurance high-altitude platform designed for persistent aerial intelligence, communication, surveillance, and remote sensing applications.
                   </p>
 
                   {/* Key Verified Specifications */}

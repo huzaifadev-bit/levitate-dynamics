@@ -39,7 +39,7 @@ export default function PlatformsPage() {
               <img
                 src={platform.image}
                 alt={platform.name}
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-700 ease-out"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#121216]"></div>
               <div className="absolute top-4 left-4">
@@ -48,7 +48,7 @@ export default function PlatformsPage() {
                 </span>
               </div>
               <div className="absolute bottom-4 left-4 text-[11px] font-mono text-zinc-400">
-                AUTONOMOUS STRATOSPHERIC PLATFORM
+                LEVITATE DYNAMICS HAPS
               </div>
             </div>
 

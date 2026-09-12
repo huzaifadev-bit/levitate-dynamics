@@ -36,13 +36,13 @@ export interface Platform {
 
 export const HAPS_PLATFORM: Platform = {
   slug: "haps",
-  name: "FLAGSHIP HAPS",
+  name: "LEVITATE DYNAMICS HAPS",
   designation: "High-Altitude Pseudo-Satellite / Perpetual Loiter",
   badge: "FLAGSHIP AIRCRAFT",
   headline: "Perpetual Stratospheric Loiter.",
-  tagline: "Ultra-long endurance high-altitude pseudo-satellite for sovereign persistent presence.",
-  summary: "The flagship solar-electric HAPS engineered for persistent stratospheric loiter, bridging tactical UAV agility with orbital satellite persistence.",
-  image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA96KKLjtVhQXj9Z3cePxcSDUhfDH5TwVjwpWV8gJskbaTKHH6uTY4rhEoNk37gbrdM7pi7JaD1utOPJjC4Jr9O7WIN6QBDFi9tsKNmErb7-x9MqN0X-f_lMIuX3wI8PekYkDpDT6H6kU1QAALo3si6a5kJVwcCtw_DBrR6h2NJT_uyk6vZRMcoopSUxBRQdaC_0_JogNnxKUzOfRmbF4GY-09Gq8MmjszDQgwH43bOGeQ6sdoc_-PJw39v-eu6lsZ6dT-bOdyf5N0",
+  tagline: "A long-endurance high-altitude platform designed for persistent aerial intelligence, communication, surveillance, and remote sensing applications.",
+  summary: "A long-endurance high-altitude platform designed for persistent aerial intelligence, communication, surveillance, and remote sensing applications.",
+  image: "/haps-aircraft.jpg",
   overview: [
     "Levitate Dynamics' flagship sovereign High Altitude Pseudo-Satellite (HAPS) operates in the stratosphere — high above civilian air traffic, adverse tropospheric weather fronts, and jet-stream turbulence.",
     "Engineered with an ultra-high aspect ratio carbon-composite airframe and integrated solar harvesting arrays, the platform generates daylight energy to power high-efficiency brushless propulsion while charging onboard energy storage for continuous station-keeping.",

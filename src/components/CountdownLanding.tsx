@@ -9,8 +9,8 @@ import React, { useEffect, useState, useRef } from "react";
  * ============================================================================
  */
 
-// Target timestamp as requested: 2026-10-03T12:00:00+05:30
-const COUNTDOWN_TARGET = "2026-10-03T12:00:00+05:30";
+// Target timestamp: October 4, 2026 at 12:00 AM IST (UTC+05:30)
+const COUNTDOWN_TARGET = "2026-10-04T00:00:00+05:30";
 const TOTAL_SPAN_MS = 48 * 60 * 60 * 1000;
 
 export default function CountdownLanding() {

@@ -170,8 +170,8 @@ export default function Investors() {
                 <span className="text-white">MAHARASHTRA, INDIA</span>
               </div>
               <div className="p-4 bg-[#141418] border border-white/10 rounded-sm flex justify-between">
-                <span className="text-slate-500">EXECUTIVE DIRECTORS:</span>
-                <span className="text-white">PRANAY RAJESH NAGRALE / NIRMEET GANESH WANKHADE</span>
+                <span className="text-slate-500">REGISTERED OFFICE:</span>
+                <span className="text-white">FLAT NO. 301, BORKUTE LAY OUT, NARENDRA NAGAR, NAGPUR</span>
               </div>
             </div>
           </div>

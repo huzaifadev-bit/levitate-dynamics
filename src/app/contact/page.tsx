@@ -230,32 +230,55 @@ export default function ContactPage() {
 
             <div className="lg:col-span-4 space-y-8">
               <div className="p-8 bg-[#111115] border border-white/10 rounded-sm space-y-4">
-                <span className="text-xs font-mono text-[#00dbe9] uppercase tracking-wider block">
+                <span className="text-xs font-mono text-[#00f5ff] uppercase tracking-wider block">
                   HEADQUARTERS
                 </span>
-                <h3 className="text-lg font-bold font-headline-sm uppercase text-white">
+                <h3 className="text-lg font-bold font-heading uppercase text-white">
                   NAGPUR OPERATIONS COMMAND
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 font-body-md leading-relaxed">
-                  Flat No 301, Borkute Layout, Narendra Nagar, Nagpur, Maharashtra, India - 440015
-                </p>
-                <div className="pt-2 text-xs font-mono text-slate-500">
+                <address className="not-italic text-xs sm:text-sm text-zinc-300 font-sans leading-relaxed">
+                  Flat No. 301, Borkute Lay Out,<br />
+                  Narendra Nagar, Nagpur,<br />
+                  Maharashtra 440015, India.
+                </address>
+                <div className="pt-2 text-xs font-mono text-zinc-500">
                   CIN: U30305MH2025PTC447508
+                </div>
+                <div className="pt-2">
+                  <a
+                    href="https://share.google/WappuysEw0qQjJH6W"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-zinc-300 hover:text-white underline inline-flex items-center gap-1"
+                  >
+                    View on Google Maps ↗
+                  </a>
                 </div>
               </div>
 
               <div className="p-8 bg-[#111115] border border-white/10 rounded-sm space-y-3">
-                <span className="text-xs font-mono text-slate-400 uppercase tracking-wider block">
-                  CHANNELS
+                <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider block">
+                  OFFICIAL CHANNELS
                 </span>
-                <div className="text-xs text-slate-300 space-y-2">
+                <div className="text-xs text-zinc-300 space-y-3 font-sans">
                   <div>
-                    <span className="text-slate-500 block">General Inquiries:</span>
-                    <span className="text-white font-mono">contact@levitatedynamics.com</span>
+                    <span className="text-zinc-500 block text-xs font-mono uppercase mb-1">Mission &amp; Defense Inquiries:</span>
+                    <a
+                      href="mailto:levitateworks.office@gmail.com"
+                      className="text-[#00f5ff] font-mono hover:underline text-sm"
+                    >
+                      levitateworks.office@gmail.com
+                    </a>
                   </div>
-                  <div>
-                    <span className="text-slate-500 block">Defense &amp; Strategic:</span>
-                    <span className="text-white font-mono">defense@levitatedynamics.com</span>
+                  <div className="pt-2">
+                    <a
+                      href="https://www.tofler.in/levitate-dynamics-private-limited/company/U30305MH2025PTC447508"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono text-zinc-400 hover:text-white underline"
+                    >
+                      Corporate Record (Tofler) ↗
+                    </a>
                   </div>
                 </div>
               </div>

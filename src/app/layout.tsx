@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Orbitron, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -16,36 +16,49 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#131316",
+  themeColor: "#09090b",
 };
 
 export const metadata: Metadata = {
-  title: "Levitate Dynamics — Stratospheric Aerospace Intelligence",
-  description: "Architecting next-generation High Altitude Pseudo-Satellites (HAPS) for sovereign persistent surveillance, low-latency 5G telecom bridging, and autonomous stratospheric operations.",
-  metadataBase: new URL("https://levitate-dynamics-real.vercel.app"),
+  title: "Levitate Dynamics | Persistent Stratospheric Flight",
+  description:
+    "Levitate Dynamics develops indigenous High Altitude Pseudo-Satellite platforms for persistent surveillance, communications and wide-area situational awareness.",
+  metadataBase: new URL("https://levitatedynamics.in"),
   keywords: [
+    "Levitate Dynamics",
     "HAPS",
     "High Altitude Pseudo Satellite",
+    "Stratospheric Flight",
+    "Sovereign Defense",
+    "Persistent Surveillance",
     "Aerospace India",
-    "Stratospheric UAV",
-    "Autonomous Flight",
-    "Sovereign Defense Technology",
     "Nagpur Aerospace",
     "Solar Electric Aircraft",
   ],
-  authors: [{ name: "Levitate Dynamics" }],
+  authors: [{ name: "Levitate Dynamics Private Limited" }],
   openGraph: {
-    title: "Levitate Dynamics — Stratospheric Aerospace Intelligence",
-    description: "Architecting next-generation High Altitude Pseudo-Satellites (HAPS) for continuous observation, real-time sensing, and sovereign intelligence.",
-    url: "https://levitate-dynamics-real.vercel.app",
+    title: "Levitate Dynamics | Persistent Stratospheric Flight",
+    description:
+      "Levitate Dynamics develops indigenous High Altitude Pseudo-Satellite platforms for persistent surveillance, communications and wide-area situational awareness.",
+    url: "https://levitatedynamics.in",
     siteName: "Levitate Dynamics",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/haps-aircraft.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Levitate Dynamics Stratospheric HAPS Platform",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Levitate Dynamics — Stratospheric Aerospace Intelligence",
-    description: "Sovereign high-altitude aerospace independence and persistent stratospheric presence.",
+    title: "Levitate Dynamics | Persistent Stratospheric Flight",
+    description:
+      "Levitate Dynamics develops indigenous High Altitude Pseudo-Satellite platforms for persistent surveillance, communications and wide-area situational awareness.",
+    images: ["/haps-aircraft.jpg"],
   },
   icons: {
     icon: "/logo.svg",
@@ -61,9 +74,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${orbitron.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`dark ${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-body-md bg-background text-on-surface selection:bg-primary-fixed/30 selection:text-primary overflow-x-hidden">
+      <body className="min-h-full flex flex-col font-sans bg-[#09090b] text-[#f4f4f5] selection:bg-[#00f5ff]/25 selection:text-[#00f5ff] overflow-x-hidden">
         {children}
       </body>
     </html>

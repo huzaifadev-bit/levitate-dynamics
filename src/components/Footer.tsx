@@ -25,9 +25,9 @@ export default function Footer() {
   return (
     <>
       <footer className="w-full bg-[#08080a] border-t border-white/10 py-16 px-4 sm:px-6 md:px-10 lg:px-16 mt-auto">
-        <div className="max-w-container-max mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-12">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12">
           {/* Brand Col */}
-          <div className="sm:col-span-2 lg:col-span-2 space-y-4">
+          <div className="lg:col-span-5 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <div className="relative w-8 h-8 shrink-0">
                 <img
@@ -36,95 +36,97 @@ export default function Footer() {
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white group-hover:text-zinc-200 transition-colors">
-                LEVITATE DYNAMICS PRIVATE LIMITED
-              </span>
+              <div className="flex flex-col leading-tight">
+                <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white">
+                  LEVITATE DYNAMICS
+                </span>
+                <span className="text-[10px] font-mono text-[#00f5ff] tracking-wider uppercase">
+                  Sovereign Stratospheric Aerospace
+                </span>
+              </div>
             </Link>
-            <p className="text-slate-400 font-body-md text-xs sm:text-sm leading-relaxed max-w-sm">
-              Architecting sovereign high-altitude aerospace platforms for persistent sensing, sovereign communications, and national security.
+            <p className="text-zinc-400 font-sans text-xs sm:text-sm leading-relaxed max-w-md">
+              Persistent Stratospheric Flight. Sovereign Intelligence &amp; Connectivity. Developing indigenous High Altitude Pseudo-Satellites for national security, border surveillance, and resilient communications.
             </p>
-            <div className="pt-2 text-[11px] font-mono text-slate-500 space-y-1">
+            <div className="pt-2 text-[11px] font-mono text-zinc-500 space-y-1">
               <div>CIN: U30305MH2025PTC447508</div>
-              <div>OPERATIONS COMMAND: NAGPUR, MAHARASHTRA, INDIA</div>
+              <div>OPERATIONS: NAGPUR, MAHARASHTRA, INDIA</div>
             </div>
           </div>
 
-          {/* Platform Col */}
-          <div className="flex flex-col gap-2.5">
+          {/* Navigation Links */}
+          <div className="lg:col-span-3 flex flex-col gap-2.5">
             <span className="text-xs font-semibold tracking-wider text-white uppercase mb-2">
-              PLATFORM
+              NAVIGATION
             </span>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/haps">
-              Flagship HAPS Overview
+            <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#platform">
+              Platform
             </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/haps#specifications">
-              Flight Envelope &amp; Loiter
+            <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#technology">
+              Technology
             </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/haps#payloads">
-              Modular Payload Bays
+            <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#missions">
+              Missions
             </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech">
-              Solar-Electric Propulsion
+            <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#company">
+              Company
             </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech#autonomy">
-              Autonomous Guidance
-            </Link>
-          </div>
-
-          {/* Technology Col */}
-          <div className="flex flex-col gap-2.5">
-            <span className="text-xs font-semibold tracking-wider text-white uppercase mb-2">
-              TECHNOLOGY
-            </span>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech#aerodynamics">
-              Composite Aerodynamics
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech#solar-energy">
-              Solar-Electric Propulsion
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech#autonomy">
-              Autonomous Guidance
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech#mesh">
-              Sovereign Mesh Encryption
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/tech#capabilities">
-              Operational Superiority
-            </Link>
-          </div>
-
-          {/* Company Col */}
-          <div className="flex flex-col gap-2.5">
-            <span className="text-xs font-semibold tracking-wider text-white uppercase mb-2">
-              COMPANY
-            </span>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/about">
-              About Us
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/about#leadership">
-              Leadership
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/investors">
-              Investors
-            </Link>
-            <Link className="text-xs text-slate-400 hover:text-white transition-colors" href="/contact">
-              Contact &amp; Procurement
+            <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#contact">
+              Contact
             </Link>
             <button
               onClick={() => setDisclosureOpen(true)}
-              className="text-left text-xs text-slate-400 hover:text-white transition-colors"
+              className="text-left text-xs text-zinc-400 hover:text-white transition-colors cursor-pointer"
             >
-              Legal Disclosure
+              Legal &amp; Regulatory Disclosure
             </button>
+          </div>
+
+          {/* Location & Contact Col */}
+          <div className="lg:col-span-4 space-y-3">
+            <span className="text-xs font-semibold tracking-wider text-white uppercase block mb-2">
+              REGISTERED OFFICE &amp; CONTACT
+            </span>
+            <address className="not-italic text-xs text-zinc-400 leading-relaxed font-sans">
+              Flat No. 301, Borkute Lay Out,<br />
+              Narendra Nagar, Nagpur,<br />
+              Maharashtra 440015, India.
+            </address>
+            <div className="pt-1 flex flex-col gap-1.5 text-xs">
+              <a
+                href="mailto:levitateworks.office@gmail.com"
+                className="text-[#00f5ff] hover:underline font-mono"
+              >
+                levitateworks.office@gmail.com
+              </a>
+              <div className="flex items-center gap-4 pt-1">
+                <a
+                  href="https://share.google/WappuysEw0qQjJH6W"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-zinc-400 hover:text-white underline font-mono"
+                >
+                  View on Map ↗
+                </a>
+                <a
+                  href="https://www.tofler.in/levitate-dynamics-private-limited/company/U30305MH2025PTC447508"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-zinc-400 hover:text-white underline font-mono"
+                >
+                  Corporate Info (Tofler) ↗
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="max-w-container-max mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-slate-500 font-mono">
+        <div className="max-w-container-max mx-auto pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs text-zinc-500 font-mono">
           <div>
-            © 2026 LEVITATE DYNAMICS PRIVATE LIMITED. ALL RIGHTS RESERVED.
+            © 2026 Levitate Dynamics Private Limited. All rights reserved.
           </div>
-          <div>
-            SOVEREIGN AEROSPACE INDEPENDENCE
+          <div className="text-[11px] text-zinc-500">
+            SOVEREIGN AEROSPACE INDEPENDENCE // ATMANIRBHAR BHARAT
           </div>
         </div>
       </footer>

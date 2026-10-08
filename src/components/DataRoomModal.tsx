@@ -70,9 +70,7 @@ telecom bridging, and sovereign atmospheric domain control.
 - Legal Entity: LEVITATE DYNAMICS PRIVATE LIMITED
 - Corporate CIN: U30305MH2025PTC447508
 - Headquarters: Nagpur, Maharashtra, India
-- Directors:
-  • Pranay Rajesh Nagrale (Director & Chief Engineer)
-  • Nirmeet Ganesh Wankhade (Director & Ops Command)
+- Registered Office: Flat No. 301, Borkute Lay Out, Narendra Nagar, Nagpur 440015, India
 
 3. PLATFORM SPECIFICATIONS
 - System: Autonomous Solar-Electric High Altitude Pseudo-Satellite (HAPS)

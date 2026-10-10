@@ -79,7 +79,7 @@ export default function Header() {
               src="/logo-header.svg"
               alt="Levitate Dynamics"
               className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
-              width={169}
+              width={153}
               height={36}
             />
           </Link>

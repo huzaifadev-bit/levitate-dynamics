@@ -20,10 +20,16 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Levitate Dynamics | Persistent Stratospheric Flight",
+  title: {
+    default: "Levitate Dynamics | Persistent Stratospheric Flight",
+    template: "%s | Levitate Dynamics",
+  },
   description:
     "Levitate Dynamics develops indigenous High Altitude Pseudo-Satellite platforms for persistent surveillance, communications and wide-area situational awareness.",
   metadataBase: new URL("https://levitatedynamics.in"),
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "Levitate Dynamics",
     "HAPS",
@@ -66,6 +72,52 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://levitatedynamics.in/#organization",
+      "name": "Levitate Dynamics Private Limited",
+      "legalName": "Levitate Dynamics Private Limited",
+      "url": "https://levitatedynamics.in",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://levitatedynamics.in/logo.svg",
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "Corporate Identification Number (CIN)",
+        "value": "U30305MH2025PTC447508",
+      },
+      "email": "levitateworks.office@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Flat No. 301, Borkute Lay Out, Narendra Nagar",
+        "addressLocality": "Nagpur",
+        "addressRegion": "Maharashtra",
+        "postalCode": "440015",
+        "addressCountry": "IN",
+      },
+      "sameAs": [
+        "https://www.tofler.in/levitate-dynamics-private-limited/company/U30305MH2025PTC447508",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://levitatedynamics.in/#website",
+      "url": "https://levitatedynamics.in",
+      "name": "Levitate Dynamics",
+      "description":
+        "Levitate Dynamics develops indigenous High Altitude Pseudo-Satellite platforms for persistent surveillance, communications and wide-area situational awareness.",
+      "publisher": {
+        "@id": "https://levitatedynamics.in/#organization",
+      },
+      "inLanguage": "en-US",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,6 +128,12 @@ export default function RootLayout({
       lang="en"
       className={`dark ${inter.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-[#09090b] text-[#f4f4f5] selection:bg-[#00f5ff]/25 selection:text-[#00f5ff] overflow-x-hidden">
         {children}
       </body>

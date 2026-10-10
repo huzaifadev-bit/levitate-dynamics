@@ -42,3 +42,5 @@ zip_extracted/
 next-env.d.ts
 
 .vercel
+
+*.zip

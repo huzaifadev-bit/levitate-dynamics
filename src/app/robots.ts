@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://levitate-dynamics-real.vercel.app/sitemap.xml",
+    sitemap: "https://levitatedynamics.in/sitemap.xml",
   };
 }

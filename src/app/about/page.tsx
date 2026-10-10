@@ -1,8 +1,38 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "About Us | Sovereign Aerospace & HAPS Innovation",
+  description:
+    "Levitate Dynamics is an Indian deep-tech aerospace enterprise headquartered in Nagpur, engineering sovereign autonomous High Altitude Pseudo-Satellites (HAPS).",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us | Levitate Dynamics",
+    description:
+      "Levitate Dynamics is an Indian deep-tech aerospace enterprise headquartered in Nagpur, engineering sovereign autonomous High Altitude Pseudo-Satellites (HAPS).",
+    url: "https://levitatedynamics.in/about",
+    siteName: "Levitate Dynamics",
+    images: [
+      {
+        url: "/haps-aircraft.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About Levitate Dynamics",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Levitate Dynamics",
+    description:
+      "Levitate Dynamics is an Indian deep-tech aerospace enterprise headquartered in Nagpur, engineering sovereign autonomous High Altitude Pseudo-Satellites (HAPS).",
+    images: ["/haps-aircraft.jpg"],
+  },
+};
 
 export default function About() {
   return (

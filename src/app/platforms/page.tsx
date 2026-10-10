@@ -1,11 +1,39 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HAPS_PLATFORM } from "@/lib/platforms";
 
-export const metadata = {
-  title: "Platforms — Levitate Dynamics",
-  description: "Explore the Flagship High Altitude Pseudo-Satellite (HAPS) engineered by Levitate Dynamics for persistent stratospheric loiter at 65,000 feet.",
+export const metadata: Metadata = {
+  title: "Sovereign Aircraft Platforms | Levitate Dynamics",
+  description:
+    "Explore the flagship High Altitude Pseudo-Satellite (HAPS) engineered by Levitate Dynamics for persistent stratospheric loiter at 65,000 feet.",
+  alternates: {
+    canonical: "/platforms",
+  },
+  openGraph: {
+    title: "Sovereign Aircraft Platforms | Levitate Dynamics",
+    description:
+      "Explore the flagship High Altitude Pseudo-Satellite (HAPS) engineered by Levitate Dynamics for persistent stratospheric loiter at 65,000 feet.",
+    url: "https://levitatedynamics.in/platforms",
+    siteName: "Levitate Dynamics",
+    images: [
+      {
+        url: "/haps-aircraft.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Levitate Dynamics Sovereign HAPS Aircraft",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sovereign Aircraft Platforms | Levitate Dynamics",
+    description:
+      "Explore the flagship High Altitude Pseudo-Satellite (HAPS) engineered by Levitate Dynamics for persistent stratospheric loiter at 65,000 feet.",
+    images: ["/haps-aircraft.jpg"],
+  },
 };
 
 export default function PlatformsPage() {
@@ -36,10 +64,13 @@ export default function PlatformsPage() {
           <article className="rounded-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-white/10 hover:border-white/20 transition-all duration-300 bg-[#121216]">
             {/* Visual Container */}
             <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] lg:min-h-[500px] bg-black overflow-hidden group">
-              <img
+              <Image
                 src={platform.image}
                 alt={platform.name}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out"
+                fill
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                className="object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out"
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#121216] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#121216]"></div>
               <div className="absolute top-4 left-4">

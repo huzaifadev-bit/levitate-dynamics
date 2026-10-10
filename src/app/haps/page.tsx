@@ -1,11 +1,39 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HAPS_PLATFORM } from "@/lib/platforms";
 
-export const metadata = {
-  title: "Flagship HAPS — Autonomous Stratospheric Platform | Levitate Dynamics",
-  description: "High-Altitude Pseudo-Satellite (HAPS) engineered for persistent stratospheric loiter, bridging tactical UAV agility with orbital satellite persistence.",
+export const metadata: Metadata = {
+  title: "Flagship HAPS Platform — Autonomous Stratospheric Loiter | Levitate Dynamics",
+  description:
+    "High-Altitude Pseudo-Satellite (HAPS) engineered for persistent stratospheric loiter at 65,000 ft, bridging tactical UAV agility with orbital satellite persistence.",
+  alternates: {
+    canonical: "/haps",
+  },
+  openGraph: {
+    title: "Flagship HAPS Platform | Levitate Dynamics",
+    description:
+      "High-Altitude Pseudo-Satellite (HAPS) engineered for persistent stratospheric loiter at 65,000 ft, bridging tactical UAV agility with orbital satellite persistence.",
+    url: "https://levitatedynamics.in/haps",
+    siteName: "Levitate Dynamics",
+    images: [
+      {
+        url: "/haps-aircraft.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Levitate Dynamics Flagship HAPS Aircraft",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flagship HAPS Platform | Levitate Dynamics",
+    description:
+      "High-Altitude Pseudo-Satellite (HAPS) engineered for persistent stratospheric loiter at 65,000 ft.",
+    images: ["/haps-aircraft.jpg"],
+  },
 };
 
 export default function HapsPage() {
@@ -21,10 +49,14 @@ export default function HapsPage() {
             ============================================================ */}
         <section className="relative min-h-[80vh] flex items-end pb-16 px-4 sm:px-6 md:px-10 lg:px-16 overflow-hidden border-b border-white/10">
           <div className="absolute inset-0 z-0">
-            <img
+            <Image
               src="/haps-aircraft.jpg"
-              alt="Levitate Dynamics HAPS Platform"
-              className="w-full h-full object-cover object-center sm:object-[center_35%] opacity-85 sm:opacity-90 filter contrast-[1.05]"
+              alt="Levitate Dynamics Flagship HAPS Stratospheric Platform"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center sm:object-[center_35%] opacity-85 sm:opacity-90 filter contrast-[1.05]"
+              quality={90}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/45 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#09090b]/80 via-[#09090b]/35 to-transparent"></div>

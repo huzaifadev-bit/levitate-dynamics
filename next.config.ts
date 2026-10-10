@@ -29,9 +29,38 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/platforms/haps",
+        destination: "/haps",
+        permanent: true,
+      },
+      {
         source: "/command-center",
         destination: "/haps",
         permanent: true,
+      },
+      {
+        source: "/technology",
+        destination: "/tech",
+        permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "(.*)\\.vercel\\.app",
+          },
+        ],
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
       },
     ];
   },

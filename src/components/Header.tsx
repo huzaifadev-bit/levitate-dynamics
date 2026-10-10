@@ -74,22 +74,14 @@ export default function Header() {
         {/* Main Sticky Navbar */}
         <header className="w-full flex justify-between items-center px-4 sm:px-6 md:px-10 lg:px-16 py-3.5 bg-[#09090b]/85 backdrop-blur-md border-b border-white/10">
           {/* Brand Logo & Name */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0">
-              <img
-                src="/logo.svg"
-                alt="Levitate Dynamics"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-[12px] sm:text-[13px] font-bold tracking-[0.24em] text-white">
-                LEVITATE
-              </span>
-              <span className="text-[9px] sm:text-[10px] font-semibold tracking-[0.28em] text-zinc-400">
-                DYNAMICS
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group shrink-0" aria-label="Levitate Dynamics Home">
+            <img
+              src="/logo-header.svg"
+              alt="Levitate Dynamics"
+              className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+              width={169}
+              height={36}
+            />
           </Link>
 
           {/* Desktop Navigation */}

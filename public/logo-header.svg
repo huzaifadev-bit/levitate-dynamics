@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 46" fill="none">
+  <defs>
+    <linearGradient id="hdrSilver" x1="15%" y1="30%" x2="85%" y2="70%">
+      <stop offset="0%" stop-color="#00f5ff" />
+      <stop offset="15%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#e2e8f0" />
+      <stop offset="85%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+
+    <linearGradient id="hdrCyan" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#00f5ff" />
+      <stop offset="50%" stop-color="#00e5ff" />
+      <stop offset="100%" stop-color="#00c8e0" />
+    </linearGradient>
+
+    <filter id="hdrGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="1.2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ================= EMBLEM ICON (Left) ================= -->
+  <g transform="translate(2, 1) scale(0.44)">
+    <!-- Cyan kinetic trajectory -->
+    <line x1="52.5" y1="7" x2="36.5" y2="47.5" 
+          stroke="url(#hdrCyan)" stroke-width="5.5" stroke-linecap="round" filter="url(#hdrGlow)" />
+    <line x1="36.5" y1="47.5" x2="59.5" y2="62.5" 
+          stroke="url(#hdrCyan)" stroke-width="4.8" filter="url(#hdrGlow)" />
+    <line x1="59.5" y1="62.5" x2="47.5" y2="93" 
+          stroke="url(#hdrCyan)" stroke-width="5.5" stroke-linecap="round" filter="url(#hdrGlow)" />
+
+    <!-- Aerodynamic hourglass ribbon -->
+    <polygon points="18,38 82,32 21,68 79,62" 
+             stroke="url(#hdrSilver)" 
+             stroke-width="5.0" 
+             stroke-linecap="round" 
+             stroke-linejoin="round" />
+
+    <!-- Left vertex cyan accent flare -->
+    <circle cx="18" cy="38" r="3.6" fill="#00f5ff" filter="url(#hdrGlow)" />
+    <circle cx="18" cy="38" r="1.8" fill="#ffffff" />
+  </g>
+
+  <!-- ================= WORDMARK (Right) ================= -->
+  <g transform="translate(56, 10)">
+    <!-- Line 1: "LEVITATE" (Crisp White, H=16, stroke=2.4) -->
+    <g stroke="#ffffff" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- L (x=0) -->
+      <path d="M 0,0.5 L 0,15.5 L 11,15.5" />
+
+      <!-- E (x=20) - Three horizontal bars -->
+      <g transform="translate(20, 0)">
+        <line x1="0" y1="1" x2="12.5" y2="1" />
+        <line x1="0" y1="8" x2="12.5" y2="8" />
+        <line x1="0" y1="15" x2="12.5" y2="15" />
+      </g>
+
+      <!-- V (x=41.5) -->
+      <g transform="translate(41.5, 0)">
+        <path d="M 0,0.5 L 6.5,15.5 L 13,0.5" />
+      </g>
+
+      <!-- I (x=63.5) -->
+      <g transform="translate(63.5, 0)">
+        <line x1="0" y1="0.5" x2="0" y2="15.5" />
+      </g>
+
+      <!-- T (x=73.5) -->
+      <g transform="translate(73.5, 0)">
+        <line x1="0" y1="1" x2="13" y2="1" />
+        <line x1="6.5" y1="1" x2="6.5" y2="15.5" />
+      </g>
+
+      <!-- A (x=96) - Inverted V (no crossbar) -->
+      <g transform="translate(96, 0)">
+        <path d="M 0,15.5 L 6.5,0.5 L 13,15.5" />
+      </g>
+
+      <!-- T (x=118.5) -->
+      <g transform="translate(118.5, 0)">
+        <line x1="0" y1="1" x2="13" y2="1" />
+        <line x1="6.5" y1="1" x2="6.5" y2="15.5" />
+      </g>
+
+      <!-- E (x=141) - Three horizontal bars -->
+      <g transform="translate(141, 0)">
+        <line x1="0" y1="1" x2="12.5" y2="1" />
+        <line x1="0" y1="8" x2="12.5" y2="8" />
+        <line x1="0" y1="15" x2="12.5" y2="15" />
+      </g>
+    </g>
+
+    <!-- Line 2: "DYNAMICS" (Electric Cyan, H=6.8, stroke=1.35) -->
+    <!-- Proportions and tracking matching reference: centered under LEVITATE -->
+    <g stroke="#00f5ff" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- D (x=23) -->
+      <g transform="translate(23, 21)">
+        <path d="M 0,0 L 3.5,0 C 5.6,0 6.6,1.4 6.6,3.4 C 6.6,5.4 5.6,6.8 3.5,6.8 L 0,6.8 Z" />
+      </g>
+
+      <!-- Y (x=38) -->
+      <g transform="translate(38, 21)">
+        <path d="M 0,0 L 3.25,3.6 L 6.5,0 M 3.25,3.6 L 3.25,6.8" />
+      </g>
+
+      <!-- N (x=53) -->
+      <g transform="translate(53, 21)">
+        <path d="M 0,6.8 L 0,0 L 6.5,6.8 L 6.5,0" />
+      </g>
+
+      <!-- A (x=68) -->
+      <g transform="translate(68, 21)">
+        <path d="M 0,6.8 L 3.5,0 L 7,6.8 M 1.2,4.6 L 5.8,4.6" />
+      </g>
+
+      <!-- M (x=83) -->
+      <g transform="translate(83, 21)">
+        <path d="M 0,6.8 L 0,0 L 3.75,4.2 L 7.5,0 L 7.5,6.8" />
+      </g>
+
+      <!-- I (x=99) -->
+      <g transform="translate(99, 21)">
+        <line x1="0" y1="0" x2="0" y2="6.8" />
+      </g>
+
+      <!-- C (x=111) -->
+      <g transform="translate(111, 21)">
+        <path d="M 5.8,1.6 C 5.0,0.4 3.8,0 2.8,0 C 1.0,0 0,1.5 0,3.4 C 0,5.3 1.0,6.8 2.8,6.8 C 3.8,6.8 5.0,6.4 5.8,5.2" />
+      </g>
+
+      <!-- S (x=124) -->
+      <g transform="translate(124, 21)">
+        <path d="M 5.2,1.5 C 4.6,0.3 3.6,0 2.6,0 C 1.2,0 0.2,0.8 0.2,1.8 C 0.2,2.8 1.2,3.2 2.6,3.5 C 4.0,3.8 5.0,4.3 5.0,5.3 C 5.0,6.3 3.8,6.8 2.6,6.8 C 1.4,6.8 0.4,6.4 0,5.3" />
+      </g>
+    </g>
+  </g>
+</svg>

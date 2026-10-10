@@ -28,22 +28,17 @@ export default function Footer() {
         <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12">
           {/* Brand Col */}
           <div className="lg:col-span-5 space-y-4">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="relative w-8 h-8 shrink-0">
-                <img
-                  src="/logo.svg"
-                  alt="Levitate Dynamics"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-white">
-                  LEVITATE DYNAMICS
-                </span>
-                <span className="text-[10px] font-mono text-[#00f5ff] tracking-wider uppercase">
-                  Sovereign Stratospheric Aerospace
-                </span>
-              </div>
+            <Link href="/" className="inline-flex flex-col items-start gap-2 group" aria-label="Levitate Dynamics Home">
+              <img
+                src="/logo-header.svg"
+                alt="Levitate Dynamics"
+                className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-90"
+                width={169}
+                height={36}
+              />
+              <span className="text-[10px] font-mono text-[#00f5ff] tracking-wider uppercase">
+                Sovereign Stratospheric Aerospace
+              </span>
             </Link>
             <p className="text-zinc-400 font-sans text-xs sm:text-sm leading-relaxed max-w-md">
               Persistent Stratospheric Flight. Sovereign Intelligence &amp; Connectivity. Developing indigenous High Altitude Pseudo-Satellites for national security, border surveillance, and resilient communications.

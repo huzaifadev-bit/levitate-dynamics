@@ -67,8 +67,15 @@ export const HAPS_PLATFORM: Platform = {
     }
   ],
   specifications: [
-    { category: "Wingspan", value: "24 m", description: "Ultra-lightweight high-aspect-ratio carbon composite airframe." },
-    { category: "Payload Capacity", value: "8 kg", description: "Standardized quick-swap modular payload bay for persistent sensing and communications." }
+    { category: "Wingspan", value: "~24 m", description: "Fixed-wing HAPS class; ultra-high aspect ratio carbon-composite airframe." },
+    { category: "Max Takeoff Weight", value: "~110 – 120 kg", description: "Total mass including composite airframe, payload, and power architecture." },
+    { category: "Cruise Altitude", value: "59,000 – 72,000 ft", description: "Stratospheric cruise corridor above weather storms and commercial air traffic." },
+    { category: "Minimum Endurance", value: "72+ hours", description: "Solar-augmented perpetual flight with continuous day/night recharge." },
+    { category: "Cruise Speed", value: "~20 – 35 km/h", description: "Mission-dependent stratospheric loiter speed for persistent coverage." },
+    { category: "Payload Capacity", value: "Up to ~12 kg", description: "Modular dual-sensor bay designed for hyperspectral and EO/IR imaging systems." },
+    { category: "Power System", value: "Solar + Li-ion", description: "Upper-wing solar arrays paired with high-density battery energy storage." },
+    { category: "Comms Range", value: "BVLOS Capable", description: "Beyond Visual Line of Sight via satellite and stratospheric mesh relay." },
+    { category: "Radar Signature", value: "Low-RCS", description: "Stealth composite airframe engineered for sensitive defense operations." }
   ],
   missions: [
     {

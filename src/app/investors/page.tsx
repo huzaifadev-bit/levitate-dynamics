@@ -85,16 +85,16 @@ export default function Investors() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10">
                 <div className="p-4 bg-[#141418] border border-white/10 rounded-sm">
-                  <span className="text-xs font-mono text-slate-400 uppercase block mb-1">TOTAL ADDRESSABLE MARKET</span>
-                  <span className="text-xl font-bold text-white font-headline-sm">$14B+</span>
+                  <span className="text-xs font-mono text-slate-400 uppercase block mb-1">DEFENSE ANNUAL BUDGET</span>
+                  <span className="text-xl font-bold text-white font-headline-sm">₹10,000 Cr+</span>
                 </div>
                 <div className="p-4 bg-[#141418] border border-white/10 rounded-sm">
-                  <span className="text-xs font-mono text-slate-400 uppercase block mb-1">COST PER STATION HR</span>
-                  <span className="text-xl font-bold text-[#00dbe9] font-headline-sm">&lt; 5%</span>
+                  <span className="text-xs font-mono text-slate-400 uppercase block mb-1">TELECOM INFRA MARKET</span>
+                  <span className="text-xl font-bold text-[#00dbe9] font-headline-sm">₹2,200 Cr</span>
                 </div>
                 <div className="p-4 bg-[#141418] border border-white/10 rounded-sm">
-                  <span className="text-xs font-mono text-slate-400 uppercase block mb-1">LAUNCH CYCLE</span>
-                  <span className="text-xl font-bold text-white font-headline-sm">HOURS</span>
+                  <span className="text-xs font-mono text-slate-400 uppercase block mb-1">TARGET GROSS MARGIN</span>
+                  <span className="text-xl font-bold text-white font-headline-sm">~60 – 65%</span>
                 </div>
               </div>
             </div>

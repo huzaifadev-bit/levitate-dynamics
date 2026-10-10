@@ -17,23 +17,53 @@ interface SpecRow {
 const VERIFIED_SPECS: SpecRow[] = [
   {
     category: "WINGSPAN",
-    value: "24 m",
-    description: "Ultra-high aspect ratio carbon-composite airframe engineered for stratospheric flight.",
+    value: "~24 m",
+    description: "Fixed-wing HAPS class; ultra-high aspect ratio carbon-composite airframe engineered for low-density stratospheric flight.",
+  },
+  {
+    category: "MAX TAKEOFF WEIGHT (MTOW)",
+    value: "~110 – 120 kg",
+    description: "Combined system mass including carbon-fiber airframe, modular dual payload, and high-density power architecture.",
+  },
+  {
+    category: "CRUISE ALTITUDE",
+    value: "59,000 – 72,000 ft",
+    description: "Stratospheric cruise band located well above tropospheric weather turbulence and commercial aviation corridors.",
+  },
+  {
+    category: "MINIMUM ENDURANCE",
+    value: "72+ hours",
+    description: "Solar-augmented perpetual day/night cycle targeting continuous multi-day loitering over critical points of interest.",
+  },
+  {
+    category: "CRUISE SPEED",
+    value: "~20 – 35 km/h",
+    description: "Mission-dependent stratospheric loiter speed optimized for low energy consumption and precise station-keeping.",
   },
   {
     category: "PAYLOAD CAPACITY",
-    value: "8 kg",
-    description: "Quick-swap standardized modular payload bay supporting electro-optical sensors, RF, and communications systems.",
+    value: "Up to ~12 kg",
+    description: "Modular dual-sensor bay configured for hyperspectral imaging, EO/IR thermal suites, and tactical communications.",
   },
   {
-    category: "STRUCTURAL MATERIAL",
-    value: "CARBON COMPOSITE",
-    description: "Ultra-lightweight composite structure formulated for low-density atmospheric persistence.",
+    category: "POWER & PROPULSION",
+    value: "Solar + Li-ion",
+    description: "Upper-wing photovoltaic solar arrays paired with high energy density lithium-ion battery packs for continuous in-flight recharge.",
   },
   {
-    category: "PROPULSION ARCHITECTURE",
-    value: "SOLAR-ELECTRIC",
-    description: "High-efficiency brushless propulsion integrated with solar energy harvesting arrays.",
+    category: "COMMUNICATIONS ARCHITECTURE",
+    value: "BVLOS Capable",
+    description: "Beyond Visual Line of Sight operational range enabled via satellite telemetry links and high-altitude mesh networking.",
+  },
+  {
+    category: "RADAR CROSS-SECTION (RCS)",
+    value: "Low-RCS Stealth",
+    description: "Reduced radar cross-section stealth profile achieved through composite airframe geometry for sensitive defense ISR missions.",
+  },
+  {
+    category: "MATURITY / TRL STATUS",
+    value: "TRL-2 Complete (Target: TRL-4)",
+    description: "Conceptual design, aerodynamic modeling, and power balance finalized; progressing toward flight-tested full-scale prototype.",
   },
 ];
 
@@ -101,22 +131,38 @@ export default function SpecificationsModal({ isOpen, onClose }: SpecificationsM
               </button>
             </div>
 
-            {/* Prominent Minimal Key Specifications */}
-            <div className="grid grid-cols-2 gap-8 px-6 sm:px-8 py-6 bg-[#0e0e12] border-b border-white/10">
+            {/* Prominent Key Highlights */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 px-6 sm:px-8 py-5 bg-[#0e0e12] border-b border-white/10">
               <div>
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline-sm text-white">
-                  24 m
+                <div className="text-2xl sm:text-3xl font-bold font-headline-sm text-white">
+                  ~24 m
                 </div>
-                <div className="text-xs font-mono text-zinc-400 tracking-wider uppercase mt-1 font-semibold">
+                <div className="text-[11px] font-mono text-zinc-400 tracking-wider uppercase mt-0.5 font-semibold">
                   WINGSPAN
                 </div>
               </div>
               <div>
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline-sm text-white">
-                  8 kg
+                <div className="text-2xl sm:text-3xl font-bold font-headline-sm text-[#00f5ff]">
+                  72+ hrs
                 </div>
-                <div className="text-xs font-mono text-zinc-400 tracking-wider uppercase mt-1 font-semibold">
+                <div className="text-[11px] font-mono text-zinc-400 tracking-wider uppercase mt-0.5 font-semibold">
+                  ENDURANCE
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold font-headline-sm text-white">
+                  ~12 kg
+                </div>
+                <div className="text-[11px] font-mono text-zinc-400 tracking-wider uppercase mt-0.5 font-semibold">
                   PAYLOAD
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-bold font-headline-sm text-white">
+                  72,000 ft
+                </div>
+                <div className="text-[11px] font-mono text-zinc-400 tracking-wider uppercase mt-0.5 font-semibold">
+                  MAX CEILING
                 </div>
               </div>
             </div>

@@ -68,6 +68,9 @@ export default function Footer() {
             <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#missions">
               Missions
             </Link>
+            <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#traction">
+              Roadmap &amp; Milestones
+            </Link>
             <Link className="text-xs text-zinc-400 hover:text-white transition-colors" href="/#company">
               Company
             </Link>
@@ -92,12 +95,18 @@ export default function Footer() {
               Narendra Nagar, Nagpur,<br />
               Maharashtra 440015, India.
             </address>
-            <div className="pt-1 flex flex-col gap-1.5 text-xs">
+            <div className="pt-1 flex flex-col gap-1.5 text-xs font-mono">
               <a
                 href="mailto:levitateworks.office@gmail.com"
-                className="text-[#00f5ff] hover:underline font-mono"
+                className="text-[#00f5ff] hover:underline"
               >
                 levitateworks.office@gmail.com
+              </a>
+              <a
+                href="mailto:pranay910nagarale@gmail.com"
+                className="text-zinc-300 hover:text-[#00f5ff] hover:underline text-[11px]"
+              >
+                pranay910nagarale@gmail.com (Founder Desk)
               </a>
               <div className="flex items-center gap-4 pt-1">
                 <a

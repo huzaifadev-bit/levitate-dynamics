@@ -38,7 +38,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0e] via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-2 text-xs font-mono text-slate-400">
               <span>NAGPUR, MAHARASHTRA, INDIA</span>
-              <span className="text-white">CRUISE CEILING: 65,000 FT (20 KM)</span>
+              <span className="text-white">CRUISE BAND: 59,000 – 72,000 FT</span>
             </div>
           </div>
         </section>
@@ -61,16 +61,16 @@ export default function About() {
                 Our mission is to build India&apos;s indigenous stratospheric infrastructure, eliminating foreign dependencies for persistent regional observation and critical communications.
               </p>
               <p>
-                By developing autonomous solar-electric platforms that operate continuously at 65,000 feet, Levitate Dynamics provides defense forces, emergency responders, and telecommunication providers with perpetual regional coverage at a fraction of satellite launch costs.
+                By developing autonomous solar-electric platforms operating at 59,000 to 72,000 feet, Levitate Dynamics provides defense forces, emergency responders, and telecommunication providers with persistent regional coverage at a fraction of orbital satellite deployment costs.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10 font-mono text-xs">
                 <div className="p-4 bg-[#141418] border border-white/10 rounded-sm">
-                  <span className="text-slate-500 uppercase block mb-1">STATION CEILING</span>
-                  <span className="text-base font-bold text-white font-headline-sm">65,000 FT</span>
+                  <span className="text-slate-500 uppercase block mb-1">CRUISE ALTITUDE</span>
+                  <span className="text-base font-bold text-white font-headline-sm">59K – 72K FT</span>
                 </div>
                 <div className="p-4 bg-[#141418] border border-white/10 rounded-sm">
-                  <span className="text-slate-500 uppercase block mb-1">STATION ENDURANCE</span>
-                  <span className="text-base font-bold text-[#00dbe9] font-headline-sm">90+ DAYS</span>
+                  <span className="text-slate-500 uppercase block mb-1">TARGET ENDURANCE</span>
+                  <span className="text-base font-bold text-[#00dbe9] font-headline-sm">72+ HOURS</span>
                 </div>
                 <div className="p-4 bg-[#141418] border border-white/10 rounded-sm">
                   <span className="text-slate-500 uppercase block mb-1">INDIGENOUS DESIGN</span>

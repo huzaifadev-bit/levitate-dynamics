@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/#platform", label: "PLATFORM" },
   { href: "/#technology", label: "TECHNOLOGY" },
   { href: "/#missions", label: "MISSIONS" },
+  { href: "/#traction", label: "ROADMAP" },
   { href: "/#company", label: "COMPANY" },
   { href: "/#contact", label: "CONTACT" },
 ];
